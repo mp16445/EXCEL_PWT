@@ -2,7 +2,7 @@ preparing-the-dataset
 extracting-the-relevant-information
 freezing-panes
 hiding-rows-or-columns
-sorting-observations-in-ascending-or-descending-order
+sorting-observations
 calculations-in-excel
 basic-arithmetic-calculations
 excel-built-in-functions
@@ -24,8 +24,5 @@ tables
 calculate-compound-growth-rates-in-excel
 formatting-tables-in-excel
 export-an-excel-table-to-a-word-document
-using-ai-tools-with-excel
-what-are-large-language-model-llm
-what-is-excel-vba
-using-ai-to-write-excel-vba-code
-using-copilot-in-excel
+ai-large-language-models-in-excel
+using-gpts-to-find-an-excel-function

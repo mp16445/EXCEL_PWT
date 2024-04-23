@@ -3,10 +3,9 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">The Penn World Tables in Excel</a></li>
+        <li><a href="https://github.com/mp16445/EXCEL_PWT" target="blank">The Penn World Tables in Excel</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:

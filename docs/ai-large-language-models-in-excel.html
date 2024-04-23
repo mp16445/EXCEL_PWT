@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Creating new variables | The Penn World Table (PWT) in Excel</title>
-  <meta name="description" content="Chapter 3 Creating new variables | The Penn World Table (PWT) in Excel" />
+  <title>Chapter 7 AI Large language models in Excel | The Penn World Table (PWT) in Excel</title>
+  <meta name="description" content="Chapter 7 AI Large language models in Excel | The Penn World Table (PWT) in Excel" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Creating new variables | The Penn World Table (PWT) in Excel" />
+  <meta property="og:title" content="Chapter 7 AI Large language models in Excel | The Penn World Table (PWT) in Excel" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Creating new variables | The Penn World Table (PWT) in Excel" />
+  <meta name="twitter:title" content="Chapter 7 AI Large language models in Excel | The Penn World Table (PWT) in Excel" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="calculations-in-excel.html"/>
-<link rel="next" href="formatting-numbers.html"/>
+<link rel="prev" href="tables.html"/>
+<link rel="next" href="useful-resources.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -138,37 +138,23 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="creating-new-variables" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Creating new variables<a href="creating-new-variables.html#creating-new-variables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="generating-a-new-gdp-per-capita-series" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Generating a new GDP per capita series<a href="creating-new-variables.html#generating-a-new-gdp-per-capita-series" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ai-large-language-models-in-excel" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> AI Large language models in Excel<a href="ai-large-language-models-in-excel.html#ai-large-language-models-in-excel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Many AI tools are embedded into Excel. We have already used some of these features in previous chapters:</p>
 <ul>
-<li><p>Using the data on GDP and population for the United Kingdom in the “United Kingdom” sheet we can generate a series of values for UK GDP per capita. For this, we need to create a formula referring to values in other cells.</p></li>
-<li><p>To calculate UK GDP per capita in 1950 we need to divide UK output (“rgdpo”) by UK population (“pop”). Select the cell where you want the result to appear (eg “D2”). The relevant formula for GDP per capita in 1950 is “=B2/C2”. “B2” is UK GDP in 1950, “C2” is UK population in 1950 and “/” indicates that you are dividing the former by the latter. Instead of writing “B2” and “C2” you may just click on the corresponding cells.</p></li>
+<li>When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes (“Formula by Example”).</li>
+<li>When creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in “Recommended charts”.</li>
 </ul>
-<p><img src="images/ExcelPWT18.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
+<p>With the incorporation of Microsoft Copilot within Excel, the capabilities of AI tools in Excel is likely to increase.</p>
+<div id="using-gpts-to-find-an-excel-function" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Using GPTs to find an Excel function<a href="ai-large-language-models-in-excel.html#using-gpts-to-find-an-excel-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you do not know how to write a formula in Excel, you may ask an AI tool to suggest a formula.</p>
+<p><span style="color: blue;"><strong>Practice question</strong></span>:</p>
 <ul>
-<li>To calculate UK GDP per capita in all subsequent years, we need to apply the same formula to all rows ( representing years) in the dataset.</li>
-<li>To do this you can either copy and paste the formula in all subsequent cells in the D column or double click on the “+” in the bottom right corner of D2, or click on the “+” and drag it over all the subsequent cells in the D column (whatever works for you!).</li>
+<li>Type the following prompt in your favorite AI language model (Open AI ChatGPT, Microsoft Copilot, …): “Write a formula to calculate the compounded annual growth rate of GDP in Excel”.</li>
+<li>Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita? Be careful that the GPT may be “hallucinating” an Excel function.</li>
 </ul>
-<p><img src="images/ExcelPWT19.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
-<ul>
-<li>If the data is presented in a table (as below), the formula in “D2” will apply automatically to all rows in column D.</li>
-</ul>
-<p><img src="images/ExcelPWT20.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="calculating-growth-rates" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Calculating growth rates<a href="creating-new-variables.html#calculating-growth-rates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Using the UK GDP per capita series, we can now create the series of annual growth rates of GDP per capita using the formula <span class="math inline">\(g_y = \frac{y_t}{y_{t-1}} -1\)</span>. For example, the annual growth rate of UK GDP per capita in 1951 is equal to the ratio of GDP per capita in 1951 (“D3”) and in 1950 (“D2”) minus 1.</p>
-<p><img src="images/ExcelPWT21.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
-<p>Then copy the formula in all subsequent cells to generate the whole series of annual growth rates.</p>
-</div>
-<div id="generating-a-series-for-the-logarithm-of-a-variable" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Generating a series for the logarithm of a variable<a href="creating-new-variables.html#generating-a-series-for-the-logarithm-of-a-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To calculate a series for the natural logarithm of UK GDP per capita, use the LN() function:</p>
-<p><img src="images/ExcelPWT21b.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
-<p>Then copy the formula in all subsequent cells to generate the whole series of annual growth rates.
-<em>Important</em>: to calculate the natural logarithm, do not use the LOG() function, which should only be used if you want to calculate the logarithm with a different base!</p>
+<p><em>TBA</em></p>
 </div>
 </div>
             </section>
@@ -176,8 +162,8 @@
           </div>
         </div>
       </div>
-<a href="calculations-in-excel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="formatting-numbers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="useful-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

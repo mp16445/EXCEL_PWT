@@ -73,7 +73,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">The Penn World Tables in Excel</a></li>
+<li><a href="https://github.com/mp16445/EXCEL_PWT" target="blank">The Penn World Tables in Excel</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
@@ -82,7 +82,7 @@
 <li class="chapter" data-level="1.1" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#extracting-the-relevant-information"><i class="fa fa-check"></i><b>1.1</b> Extracting the relevant information</a></li>
 <li class="chapter" data-level="1.2" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#freezing-panes"><i class="fa fa-check"></i><b>1.2</b> Freezing panes</a></li>
 <li class="chapter" data-level="1.3" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#hiding-rows-or-columns"><i class="fa fa-check"></i><b>1.3</b> Hiding rows or columns</a></li>
-<li class="chapter" data-level="1.4" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#sorting-observations-in-ascending-or-descending-order"><i class="fa fa-check"></i><b>1.4</b> Sorting observations in ascending or descending order</a></li>
+<li class="chapter" data-level="1.4" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#sorting-observations"><i class="fa fa-check"></i><b>1.4</b> Sorting observations</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="calculations-in-excel.html"><a href="calculations-in-excel.html"><i class="fa fa-check"></i><b>2</b> Calculations in Excel</a>
 <ul>
@@ -113,12 +113,9 @@
 <li class="chapter" data-level="6.2" data-path="tables.html"><a href="tables.html#formatting-tables-in-excel"><i class="fa fa-check"></i><b>6.2</b> Formatting tables in Excel</a></li>
 <li class="chapter" data-level="6.3" data-path="tables.html"><a href="tables.html#export-an-excel-table-to-a-word-document"><i class="fa fa-check"></i><b>6.3</b> Export an Excel table to a Word document</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html"><i class="fa fa-check"></i><b>7</b> Using AI tools with Excel</a>
+<li class="chapter" data-level="7" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html"><i class="fa fa-check"></i><b>7</b> AI Large language models in Excel</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#what-are-large-language-model-llm"><i class="fa fa-check"></i><b>7.1</b> What are Large Language Model (LLM)?</a></li>
-<li class="chapter" data-level="7.2" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#what-is-excel-vba"><i class="fa fa-check"></i><b>7.2</b> What is Excel VBA?</a></li>
-<li class="chapter" data-level="7.3" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#using-ai-to-write-excel-vba-code"><i class="fa fa-check"></i><b>7.3</b> Using AI to write Excel VBA code</a></li>
-<li class="chapter" data-level="7.4" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#using-copilot-in-excel"><i class="fa fa-check"></i><b>7.4</b> Using Copilot in Excel</a></li>
+<li class="chapter" data-level="7.1" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html#using-gpts-to-find-an-excel-function"><i class="fa fa-check"></i><b>7.1</b> Using GPTs to find an Excel function</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -150,13 +147,17 @@
 <h1>Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Note that this resource is still a work in progress. You can write to me at: <a href="mailto:marion.prat@bristol.ac.uk" class="email">marion.prat@bristol.ac.uk</a>.</p>
 <p>In this tutorial, we will show how to extract useful empirical facts about long-run growth from the Penn World Table (PWT) using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950).</p>
-<p><span style="color: blue;"><strong>Download</strong></span> the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><strong>here</strong></a> and <strong>save</strong> it in a folder entitled PWT. The spreadsheet contains three sheets: “Info”, “Legend” and “Data”.</p>
+<p><strong>Download</strong> the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;"><strong>here</strong></span></a> and <strong>save</strong> it in a folder entitled PWT. The spreadsheet contains three sheets: “Info”, “Legend” and “Data”.</p>
 <p><img src="images/ExcelPWT.png" /><!-- --></p>
 <p>Before going any further, check the definition of the variables in the “Legend” sheet. Why are there so many different measures of real GDP? How do they differ?</p>
 <p><img src="images/ExcelPWT_legend.png" /><!-- --></p>
 <p>The “Data” sheet contains the dataset.</p>
 <p><img src="images/ExcelPWT_data.png" /><!-- --></p>
-<p>Although the layout of this Data sheet may appear obscure and confusing at first and you may find it difficult to find the data for the country you are interested in, it is in fact very computer friendly. The two columns “country” and “year” makes it possible to store the data for all countries on the same sheet. Do not alter this “Data” sheet. Instead, in this tutorial we will show how to extract information from this data sheet into a new sheet in order to perform operations on a subset of the data.</p>
+<p>Each row corresponds to observations for a given country in a given year and each column represents a variable. Although this layout may appear confusing at first, it is in fact computer friendly:</p>
+<ul>
+<li>First, it is easy to use a <em>Power Query</em> in the <em>Data</em> tab (accessed via “Get Data”) to create a new Excel sheet on any subset of the data you are interested in analysing. This is what we are going to do in this tutorial.</li>
+<li>Second, it is compatible with how statistical software such as R work as they store variables in column vectors.</li>
+</ul>
 </div>
             </section>
 
@@ -195,8 +196,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

@@ -73,7 +73,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">The Penn World Tables in Excel</a></li>
+<li><a href="https://github.com/mp16445/EXCEL_PWT" target="blank">The Penn World Tables in Excel</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
@@ -82,7 +82,7 @@
 <li class="chapter" data-level="1.1" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#extracting-the-relevant-information"><i class="fa fa-check"></i><b>1.1</b> Extracting the relevant information</a></li>
 <li class="chapter" data-level="1.2" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#freezing-panes"><i class="fa fa-check"></i><b>1.2</b> Freezing panes</a></li>
 <li class="chapter" data-level="1.3" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#hiding-rows-or-columns"><i class="fa fa-check"></i><b>1.3</b> Hiding rows or columns</a></li>
-<li class="chapter" data-level="1.4" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#sorting-observations-in-ascending-or-descending-order"><i class="fa fa-check"></i><b>1.4</b> Sorting observations in ascending or descending order</a></li>
+<li class="chapter" data-level="1.4" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#sorting-observations"><i class="fa fa-check"></i><b>1.4</b> Sorting observations</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="calculations-in-excel.html"><a href="calculations-in-excel.html"><i class="fa fa-check"></i><b>2</b> Calculations in Excel</a>
 <ul>
@@ -113,12 +113,9 @@
 <li class="chapter" data-level="6.2" data-path="tables.html"><a href="tables.html#formatting-tables-in-excel"><i class="fa fa-check"></i><b>6.2</b> Formatting tables in Excel</a></li>
 <li class="chapter" data-level="6.3" data-path="tables.html"><a href="tables.html#export-an-excel-table-to-a-word-document"><i class="fa fa-check"></i><b>6.3</b> Export an Excel table to a Word document</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html"><i class="fa fa-check"></i><b>7</b> Using AI tools with Excel</a>
+<li class="chapter" data-level="7" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html"><i class="fa fa-check"></i><b>7</b> AI Large language models in Excel</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#what-are-large-language-model-llm"><i class="fa fa-check"></i><b>7.1</b> What are Large Language Model (LLM)?</a></li>
-<li class="chapter" data-level="7.2" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#what-is-excel-vba"><i class="fa fa-check"></i><b>7.2</b> What is Excel VBA?</a></li>
-<li class="chapter" data-level="7.3" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#using-ai-to-write-excel-vba-code"><i class="fa fa-check"></i><b>7.3</b> Using AI to write Excel VBA code</a></li>
-<li class="chapter" data-level="7.4" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#using-copilot-in-excel"><i class="fa fa-check"></i><b>7.4</b> Using Copilot in Excel</a></li>
+<li class="chapter" data-level="7.1" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html#using-gpts-to-find-an-excel-function"><i class="fa fa-check"></i><b>7.1</b> Using GPTs to find an Excel function</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -213,12 +210,11 @@
 <li>To hide a column (or a row), right click on its letter (or number) header (eg “C”) and select <em>hide</em>. Select <em>unhide</em> to reverse this action.</li>
 </ul>
 <p><img src="images/ExcelPWT13.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
-<p><span style="color: blue;"><strong>Practice question</strong></span>:</p>
-<p>Create a new spreadsheet entitled “1970” containing the three entries “country”, “rgdpo” and “pop” for the year 1970. For how many countries does this information exist? Select the rows corresponding to the United Kingdom and Nigeria.</p>
 </div>
-<div id="sorting-observations-in-ascending-or-descending-order" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Sorting observations in ascending or descending order<a href="preparing-the-dataset.html#sorting-observations-in-ascending-or-descending-order" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In the “1970” spreadsheet, countries by default are listed in alphabetical order in the . To sort the countries from the wealthiest to the poorest in terms of GDP, click on the arrow next to “rgdpo” and select “Sort Largest to smallest” to rearrange the countries in descending values of GDP.</p>
+<div id="sorting-observations" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Sorting observations<a href="preparing-the-dataset.html#sorting-observations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span style="color: blue;"><strong>Practice question</strong></span>: create a new spreadsheet entitled “1970” containing the three entries “country”, “rgdpo” and “pop” for the year 1970.</p>
+<p>In the “1970” spreadsheet, countries by default are listed in alphabetical order. To sort the countries from the wealthiest to the poorest in terms of GDP, click on the arrow next to “rgdpo” and select “Sort Largest to smallest” to rearrange the countries in descending values of GDP.</p>
 <p><img src="images/ExcelPWT14.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -259,8 +255,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

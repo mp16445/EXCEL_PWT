@@ -21,7 +21,7 @@ Note that this resource is still a work in progress. You can write to me at: mar
 
 In this tutorial, we will show how to extract useful empirical facts about long-run growth from the Penn World Table (PWT) using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950). 
 
-<span style="color: blue;">**Download**</span> the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank">**here**</a> and **save** it in a folder entitled PWT. The spreadsheet contains three sheets: "Info", "Legend" and "Data".
+**Download** the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;">**here**</span></a> and **save** it in a folder entitled PWT. The spreadsheet contains three sheets: "Info", "Legend" and "Data".
 
 ```{r ExcelPWT, echo=FALSE}
 
@@ -45,7 +45,11 @@ knitr::include_graphics(rep("images/ExcelPWT_data.png"))
 
 ```
 
-Although the layout of this Data sheet may appear obscure and confusing at first and you may find it difficult to find the data for the country you are interested in, it is in fact very computer friendly. The two columns "country" and "year" makes it possible to store the data for all countries on the same sheet. Do not alter this "Data" sheet. Instead, in this tutorial we will show how to extract information from this data sheet into a new sheet in order to perform operations on a subset of the data. 
+Each row corresponds to observations for a given country in a given year and each column represents a variable. Although this layout may appear confusing at first, it is in fact computer friendly: 
+
+- First, it is easy to use a *Power Query* in the *Data* tab (accessed via "Get Data") to create a new Excel sheet on any subset of the data you are interested in analysing. This is what we are going to do in this tutorial.
+- Second, it is compatible with how statistical software such as R work as they store variables in column vectors. 
+
 
 # Preparing the dataset
 
@@ -188,13 +192,11 @@ knitr::include_graphics(rep("images/ExcelPWT13.png"))
 
 ```
 
-<span style="color: blue;">**Practice question**</span>: 
+## Sorting observations
 
-Create a new spreadsheet entitled "1970" containing the three entries "country", "rgdpo" and "pop" for the year 1970. For how many countries does this information exist? Select the rows corresponding to the United Kingdom and Nigeria.  
+<span style="color: blue;">**Practice question**</span>: create a new spreadsheet entitled "1970" containing the three entries "country", "rgdpo" and "pop" for the year 1970. 
 
-## Sorting observations in ascending or descending order
-
-In the "1970" spreadsheet, countries by default are listed in alphabetical order in the . To sort the countries from the wealthiest to the poorest in terms of GDP, click on the arrow next to "rgdpo" and select "Sort Largest to smallest" to rearrange the countries in descending values of GDP.
+In the "1970" spreadsheet, countries by default are listed in alphabetical order. To sort the countries from the wealthiest to the poorest in terms of GDP, click on the arrow next to "rgdpo" and select "Sort Largest to smallest" to rearrange the countries in descending values of GDP.
 
 ```{r ExcelPWT14, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
 
@@ -207,8 +209,10 @@ knitr::include_graphics(rep("images/ExcelPWT14.png"))
 
 ## Basic arithmetic calculations
 
-- A formula in Excel always starts with an equal sign =
-- Arithmetic operators: + (addition), - (subtraction), * (multiplication), / (division), ^ (exponentiation). 
+A *formula* in Excel always starts with an equal sign =
+
+*Arithmetic operators*: + (addition), - (subtraction), * (multiplication), / (division), ^ (exponentiation). 
+
 - **Example 1**: to calculate "$3 + 2 \times 4 + 6^2$" in Excel, select a cell, type:
 ```{r ExcelPWT15, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
 
@@ -216,6 +220,7 @@ knitr::include_graphics(rep("images/ExcelPWT15.png"))
 
 ```
 and press "Enter".
+
 - **Example 2**: to calculate "$3 \times (3+8) + \frac{2}{3+1} + 6^{1/2}$" in Excel, select a cell, type:
 ```{r ExcelPWT15b, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
 
@@ -226,8 +231,9 @@ and  press "Enter".
 
 ## Excel built-in functions
 
-- For more complex operations, it will be more convenient to use the Excel built-in functions. 
-- To let Excel help you find the relevant function and use it, select a cell and write an equal sign. In the top left corner, a drop-down menu appears with a list of the most commonly used formulas. If the function you are looking for does not appear here, go to "More Functions" at the bottom of the menu. A search box will prompt you to describe the function you are interested in.
+For more complex operations, it will be more convenient to use the Excel built-in functions. 
+
+To let Excel help you find the relevant function and use it, select a cell and write an equal sign. In the top left corner, a drop-down menu appears with a list of the most commonly used formulas. If the function you are looking for does not appear here, go to "More Functions" at the bottom of the menu. A search box will prompt you to describe the function you are interested in.
 
 ```{r ExcelPWT16, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
 
@@ -235,7 +241,7 @@ knitr::include_graphics(rep("images/ExcelPWT16.png"))
 
 ```
 
-- **Example**: the function "AVERAGE" calculates the average of two or several numbers. To calculate the average of 6 and 4, enter 4 and 6 in the "Function Arguments" box or write directly "=AVERAGE(6,4)".
+**Example**: the function "AVERAGE" calculates the average of two or several numbers. To calculate the average of 6 and 4, enter 4 and 6 in the "Function Arguments" box or write directly "=AVERAGE(6,4)".
 
 ```{r ExcelPWT17, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
 
@@ -245,7 +251,8 @@ knitr::include_graphics(rep("images/ExcelPWT17.png"))
 
 ## Write formulas referring to values in other cells
 
-- In Excel, columns are indexed by letters and rows by numbers. Each cell therefore can be referenced by their column letter and row number. For example, "A3", "C1", "F6". 
+In Excel, columns are indexed by letters and rows by numbers. Each cell therefore can be referenced by their column letter and row number. For example, "A3", "C1", "F6". 
+
 - **Example 1**: to calculate "$3 + 2 \times 4 + 6^2$", it is possible to enter separately the values 3, 2, 4 and 6 into separate cells and then write a formula to perform this operation referring to the corresponding cells as follows: 
 ```{r ExcelPWT15c, echo=FALSE, out.width="70%", out.height="70%", fig.align='center'}
 
@@ -265,7 +272,7 @@ knitr::include_graphics(rep("images/ExcelPWT15d.png"))
 
 ## Generating a new GDP per capita series
 
-- Using the data on GDP and population for the United Kingdom between 1950 and 2019 that we have extracted in the "United Kingdom" sheet we can generate a series of values for UK GDP per capita. For this, we need to create a formula referring to values in other cells.
+- Using the data on GDP and population for the United Kingdom in the "United Kingdom" sheet we can generate a series of values for UK GDP per capita. For this, we need to create a formula referring to values in other cells.
 
 - To calculate UK GDP per capita in 1950 we need to divide UK output ("rgdpo") by UK population ("pop"). Select the cell where you want the result to appear (eg "D2"). The relevant formula for GDP per capita in 1950 is "=B2/C2". "B2" is UK GDP in 1950, "C2" is UK population in 1950 and "/" indicates that you are dividing the former by the latter. Instead of writing "B2" and "C2" you may just click on the corresponding cells.
 
@@ -304,6 +311,7 @@ knitr::include_graphics(rep("images/ExcelPWT21.png"))
 
 Then copy the formula in all subsequent cells to generate the whole series of annual growth rates.
 
+
 ## Generating a series for the logarithm of a variable
 
 To calculate a series for the natural logarithm of UK GDP per capita, use the LN() function:
@@ -316,7 +324,7 @@ knitr::include_graphics(rep("images/ExcelPWT21b.png"))
 ```
 
 Then copy the formula in all subsequent cells to generate the whole series of annual growth rates. 
-*Important*: to calculate the natural logarithm, do not use the LOG() function, which is only useful if you want to calculate the logarithm with a different base!
+*Important*: to calculate the natural logarithm, do not use the LOG() function, which should only be used if you want to calculate the logarithm with a different base!
 
 
 # Formatting numbers
@@ -373,6 +381,8 @@ To create a plot of the logarithm of UK GDP, select the "year" and "lnGDPPC" col
 **Note**: you may be tempted to select fancy layouts using the "Quick Layout" tab. Although it may be helpful in some cases, it is more likely to add unnecessary detail and therefore be more confusing to read. Better to invest in learning the chart elements can be modified to serve the purpose of each individual graph.
 
 ## Log scale
+
+TBA
 
 ## Titles
 
@@ -435,11 +445,33 @@ The table is now ready to be exported into a Word document.
 
 <video src="media/video9.mp4" width="700" height="540" controls></video>
 
+# AI Large language models in Excel
+
+Many AI tools are embedded into Excel. We have already used some of these features in previous chapters:
+
+- When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes ("Formula by Example"). 
+- When creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in "Recommended charts".
+
+With the incorporation of Microsoft Copilot within Excel, the capabilities of AI tools in Excel is likely to increase.
+
+## Using GPTs to find an Excel function
+
+If you do not know how to write a formula in Excel, you may ask an AI tool to suggest a formula.
+
+<span style="color: blue;">**Practice question**</span>: 
+
+- Type the following prompt in your favorite AI language model (Open AI ChatGPT, Microsoft Copilot, ...): "Write a formula to calculate the compounded annual growth rate of GDP in Excel". 
+- Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita? Be careful that the GPT may be "hallucinating" an Excel function. 
+
+
+*TBA*
+
+
+```{r AI, eval=FALSE, echo=FALSE}
+
 # Using AI tools with Excel
 
-Many AI tools are embedded into Excel. We have already used some of these features in previous chapters. When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes ("Formula by Example"). Similarly, when creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in "Recommended charts".
-
-In this chapter, we will present how a specific category of AI tools called Large Language Models (LLM) can be used to 1) write VBA code to perform tasks in Excel and 2) perform tasks directly in Excel using Microsoft Copilot.
+In this chapter, we will present how Large Language Models (LLM) can be used to 1) write VBA code to perform tasks in Excel and 2) perform tasks directly in Excel using Microsoft Copilot.
 
 The key messages are:
 
@@ -452,233 +484,19 @@ This chapter was written in March 2024. By the time you read this, AI tools migh
 
 Go to [Microsoft Copilot](https://copilot.microsoft.com/) or [ChatGPT](https://chat.openai.com/) and write the following prompts: 
 
-`Explain to me what is Microsoft Copilot / ChatGPT / Large language models`
+`Explain what is Microsoft Copilot / ChatGPT / Large language models`
 
-`Explain to me how to use Excel VBA`
+`Explain what is Excel VBA`
 
 ## What is Excel VBA?
 
-VBA stands for **Visual Basic for Applications**. It is a programming tool that can be used to perform operations in Excel (and other office programs). Most operations performed in Excel can be programmed in VBA instead of being performed manually as exemplified in the previous chapters. 
+VBA stands for **Visual Basic for Applications**. It is a programming tool that can be used to perform operations in Excel (and other office programs). Most operations performed in Excel can be programmed in VBA instead of being performed manually as we have done in the previous chapters. It is mostly useful when you have to do repetitive tasks, in which case it may be convenient to automate them using code, which can be saved and reused at a later stage. 
 
-However, it does not mean that coding in Excel is the most efficient or appropriate method! It is mostly useful when you have to do repetitive tasks, in which case it may be convenient to automate them using code. For example, you might want to create the plot of GDP per capita for multiple countries using the same format and style so that the plots are easily comparable.
+An important drawback of using Excel as we have done so far is that is that the tasks we have performed are not easily reproducible. You can save the results for later information but may not remember what tasks were performed to arrive at these results. 
 
-It is now possible to ask Microsoft Copilot to perform simple tasks in Excel. The next section shows you what is happening behind the scene when you are asking Copilot to perform simple tasks in Excel. 
-
-
-## Using AI to write Excel VBA code
-
-I am using this Excel sheet entitled "Data_US_LP" containing US data on real GDP, the total number of employees and the average number of hours worked per employees between 1950 and 2019:
-
-```{r Copilot1, echo=FALSE}
-
-knitr::include_graphics(rep("images/Copilot1.png"))
+However, it does not mean that coding in Excel VBA is the appropriate method to use at all times! It will soon be possible to ask Microsoft Copilot to perform simple tasks in Excel. The next section shows you what is happening behind the scene when you are asking Copilot to perform simple tasks in Excel. 
 
 ```
-
--------------------------------------------------------------------------------------------------------
-**Objective: I want to write a code in Excel VBA, which will create a new variable, GDP per hour worked, using the data in columns B, C and D and plot it against time using the dates in column A.** 
--------------------------------------------------------------------------------------------------------
-
-In here I am using [Microsoft Copilot](https://copilot.microsoft.com/), but the same procedure can be done using ChatGPT or other AI tools. I write the following prompt for Copilot:
-
-**Prompt**
-
-`I am using an Excel Spreadsheet entitled "Data_US_LP" with Year in column A, Real GDP in column B, Number of employees in column C and Average number of hours worked per employee in column D. Can you write a code in Excel VBA to construct a new variable entitled GDP per hour worked in column E?`
-
-**Reply (Copilot)**
-
-```
-Sub CalculateGDPPerHourWorked()
-    Dim ws As Worksheet
-    Dim LastRow As Long
-    Dim i As Long
-
-    ' Set the worksheet
-    Set ws = ThisWorkbook.Sheets("Data_US_LP")
-
-    ' Find the last row of data
-    LastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
-
-    ' Loop through each row
-    For i = 2 To LastRow
-        ' Calculate GDP per hour worked
-        ws.Cells(i, "E").Value = ws.Cells(i, "B").Value / (ws.Cells(i, "C").Value * ws.Cells(i, "D").Value)
-    Next i
-
-    ' Set column E header
-    ws.Cells(1, "E").Value = "GDP per hour worked"
-End Sub
-
-```
-**What is this VBA code doing? **
-
-This VBA code is a Sub procedure, a series of statements enclosed by "Sub" and "End Sub" that performs actions. Here it creates a new variable in column E but below we will see that a sub may also be used to create plots. It is possible to follow what the code is doing:
-
-- Define the dimension of the objects it is going to work with
-- Define which Excel sheet it is going to use ("Data_US_LP")
-- Calculate the number of rows of data in this Excel sheet
-- Define a loop to calculate the value of the new variable in each row
-- Write the name for the new variable in the first row ("GDP per hour worked") 
-
-
-**How to run an Excel VBA code in Excel:**
-
-1. Go to your Excel spreadsheet entitled "Data_US-LP"
-2. Press `Alt + F11`. This should open the VBA.
-3. Go to `Insert` and select `Module`. This opens a blank script (module)
-4. Copy the code into the blank script and close the VBA.
-5. In the Excel spreadsheet, press `Alt + F8`.
-6. Select "CalculateGDPPerHourWorked" and press `Run`
-
-<video src="media/ExcelVBA.mp4" width="700" height="540" controls></video>
-
-**Result (Copilot)**
-
-```{r Copilot2, echo=FALSE}
-
-knitr::include_graphics(rep("images/Copilot2.png"))
-
-```
-
-The code instructed Excel to create a new variable GDP per hour worked in column E using the appropriate formula, ie by divided real GDP (column B) by the total number of hours worked, which the product of the number of employees (column C) and the average number of hours worked (column D).
-
-**Prompt**
-
-`Now can you write an Excel VBA code to create a line plot or a time series plot of GDP per hour worked using Year to label the x-axis. Do not plot Year alongside GDP per hour worked and remove the legend`
-
-**Reply (Copilot)**
-
-```
-Sub PlotGDPperHour()
-    Dim ws As Worksheet
-    Dim LastRow As Long
-    Dim ChartObj As ChartObject
-    Dim Chart As Chart
-
-    ' Set the worksheet
-    Set ws = ThisWorkbook.Sheets("Data_US_LP")
-
-    ' Find the last row of data
-    LastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
-
-    ' Add a chart object
-    Set ChartObj = ws.ChartObjects.Add(Left:=ws.Cells(1, "G").Left, Width:=375, Top:=ws.Cells(1, "G").Top, Height:=225)
-
-    ' Set the chart
-    Set Chart = ChartObj.Chart
-
-    ' Set the data source
-    Chart.SetSourceData Source:=ws.Range(ws.Cells(2, "E"), ws.Cells(LastRow, "E"))
-
-    ' Set the chart type
-    Chart.ChartType = xlLine
-
-    ' Set the x-axis labels
-    Chart.Axes(xlCategory).CategoryNames = ws.Range(ws.Cells(2, "A"), ws.Cells(LastRow, "A"))
-
-    ' Set the chart title
-    Chart.HasTitle = True
-    Chart.ChartTitle.Text = "GDP per Hour Worked Over Time"
-
-    ' Set the x-axis title
-    Chart.Axes(xlCategory, xlPrimary).HasTitle = True
-    Chart.Axes(xlCategory, xlPrimary).AxisTitle.Text = "Year"
-
-    ' Set the y-axis title
-    Chart.Axes(xlValue, xlPrimary).HasTitle = True
-    Chart.Axes(xlValue, xlPrimary).AxisTitle.Text = "GDP per Hour Worked"
-
-    ' Remove the legend
-    Chart.HasLegend = False
-End Sub
-
-```
-To run the code in Excel, follow the same steps as before. Here is the plot we obtain by running this code.
-
-```{r Copilot3, echo=FALSE}
-
-knitr::include_graphics(rep("images/Copilot3.png"))
-
-```
-
-Next, I ask Copilot to make some changes to the code to improve the appearance of the plot: change the title of the plot because it is a bit vague, change the colour of the line, increase the interval of time between dates, ... 
-
-**Prompt**
-
-`Is it possible to modify this code so that the interval between the labels on the x-axis is ten units, the line colour is black, the x-axis title is removed and the chart title is "GDP per hour worked in the US in $/hr"?`
-
-**Reply (Copilot)**
-
-```
-Sub PlotGDPperHour()
-    Dim ws As Worksheet
-    Dim LastRow As Long
-    Dim ChartObj As ChartObject
-    Dim Chart As Chart
-    Dim Series As Series
-
-    ' Set the worksheet
-    Set ws = ThisWorkbook.Sheets("Data_US_LP")
-
-    ' Find the last row of data
-    LastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
-
-    ' Add a chart object
-    Set ChartObj = ws.ChartObjects.Add(Left:=ws.Cells(1, "G").Left, Width:=375, Top:=ws.Cells(1, "G").Top, Height:=225)
-
-    ' Set the chart
-    Set Chart = ChartObj.Chart
-
-    ' Set the data source
-    Chart.SetSourceData Source:=ws.Range(ws.Cells(2, "E"), ws.Cells(LastRow, "E"))
-
-    ' Set the chart type
-    Chart.ChartType = xlLine
-
-    ' Set the x-axis labels
-    Chart.Axes(xlCategory).CategoryNames = ws.Range(ws.Cells(2, "A"), ws.Cells(LastRow, "A"))
-
-    ' Set the x-axis label interval
-    Chart.Axes(xlCategory).TickLabelSpacing = 10
-
-    ' Remove the x-axis title
-    Chart.Axes(xlCategory, xlPrimary).HasTitle = False
-
-    ' Set the chart title
-    Chart.HasTitle = True
-    Chart.ChartTitle.Text = "GDP per hour worked in the US in $/hr"
-
-    ' Set the y-axis title
-    Chart.Axes(xlValue, xlPrimary).HasTitle = True
-    Chart.Axes(xlValue, xlPrimary).AxisTitle.Text = "GDP per Hour Worked"
-
-    ' Remove the legend
-    Chart.HasLegend = False
-
-    ' Set the line color to black
-    Set Series = Chart.SeriesCollection(1)
-    Series.Format.Line.ForeColor.RGB = RGB(0, 0, 0)
-End Sub
-
-
-```
-
-```{r Copilot4, echo=FALSE}
-
-knitr::include_graphics(rep("images/Copilot4.png"))
-
-```
-
-**Remarks**: 
-
-1. **What Copilot did well**: it correctly calculated GDP per hour worked given the description of the three variables variables used to calculate it (Real GDP, number of employees and average number of hours worked per employees)
-1. **What Copilot did less well**: I have not shown the intermediate steps but it struggled to create a line plot that does not represent "Year" alongside GDP per hour worked but use it to label the x-axis. In other words, it initially produced a clearly nonsensical plot. AI tools already embedded into Excel such as "Recommended Charts" are better in this sense. The main reason it took me some time to obtain the correct code is probably that I unable to describe precisely what I wanted to achieve.
-
-## Using Copilot in Excel
-
-In this section, we will see how Copilot can be used *within* Excel to perform the same tasks as in the previous section. To perform these operations, you will need to use a computer with Copilot for Microsoft 365 installed in it. 
-
-This feature has limited applications as of now but is likely to improve in the near future.
 
 
 # Useful resources {-} 
