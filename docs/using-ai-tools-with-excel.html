@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Using AI tools with Excel | The Penn World Table (PWT) in Excel</title>
+  <meta name="description" content="Chapter 7 Using AI tools with Excel | The Penn World Table (PWT) in Excel" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Using AI tools with Excel | The Penn World Table (PWT) in Excel" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Using AI tools with Excel | The Penn World Table (PWT) in Excel" />
+  
+  
+  
+
+<meta name="author" content="Marion Prat" />
+
+
+<meta name="date" content="2024-04-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tables.html"/>
+<link rel="next" href="useful-resources.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html"><i class="fa fa-check"></i><b>1</b> Preparing the dataset</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#extracting-the-relevant-information"><i class="fa fa-check"></i><b>1.1</b> Extracting the relevant information</a></li>
+<li class="chapter" data-level="1.2" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#freezing-panes"><i class="fa fa-check"></i><b>1.2</b> Freezing panes</a></li>
+<li class="chapter" data-level="1.3" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#hiding-rows-or-columns"><i class="fa fa-check"></i><b>1.3</b> Hiding rows or columns</a></li>
+<li class="chapter" data-level="1.4" data-path="preparing-the-dataset.html"><a href="preparing-the-dataset.html#sorting-observations-in-ascending-or-descending-order"><i class="fa fa-check"></i><b>1.4</b> Sorting observations in ascending or descending order</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="calculations-in-excel.html"><a href="calculations-in-excel.html"><i class="fa fa-check"></i><b>2</b> Calculations in Excel</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="calculations-in-excel.html"><a href="calculations-in-excel.html#basic-arithmetic-calculations"><i class="fa fa-check"></i><b>2.1</b> Basic arithmetic calculations</a></li>
+<li class="chapter" data-level="2.2" data-path="calculations-in-excel.html"><a href="calculations-in-excel.html#excel-built-in-functions"><i class="fa fa-check"></i><b>2.2</b> Excel built-in functions</a></li>
+<li class="chapter" data-level="2.3" data-path="calculations-in-excel.html"><a href="calculations-in-excel.html#write-formulas-referring-to-values-in-other-cells"><i class="fa fa-check"></i><b>2.3</b> Write formulas referring to values in other cells</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="creating-new-variables.html"><a href="creating-new-variables.html"><i class="fa fa-check"></i><b>3</b> Creating new variables</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="creating-new-variables.html"><a href="creating-new-variables.html#generating-a-new-gdp-per-capita-series"><i class="fa fa-check"></i><b>3.1</b> Generating a new GDP per capita series</a></li>
+<li class="chapter" data-level="3.2" data-path="creating-new-variables.html"><a href="creating-new-variables.html#calculating-growth-rates"><i class="fa fa-check"></i><b>3.2</b> Calculating growth rates</a></li>
+<li class="chapter" data-level="3.3" data-path="creating-new-variables.html"><a href="creating-new-variables.html#generating-a-series-for-the-logarithm-of-a-variable"><i class="fa fa-check"></i><b>3.3</b> Generating a series for the logarithm of a variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="formatting-numbers.html"><a href="formatting-numbers.html"><i class="fa fa-check"></i><b>4</b> Formatting numbers</a></li>
+<li class="chapter" data-level="5" data-path="create-plots.html"><a href="create-plots.html"><i class="fa fa-check"></i><b>5</b> Create plots</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="create-plots.html"><a href="create-plots.html#create-a-line-chart"><i class="fa fa-check"></i><b>5.1</b> Create a line chart</a></li>
+<li class="chapter" data-level="5.2" data-path="create-plots.html"><a href="create-plots.html#log-scale"><i class="fa fa-check"></i><b>5.2</b> Log scale</a></li>
+<li class="chapter" data-level="5.3" data-path="create-plots.html"><a href="create-plots.html#titles"><i class="fa fa-check"></i><b>5.3</b> Titles</a></li>
+<li class="chapter" data-level="5.4" data-path="create-plots.html"><a href="create-plots.html#format-axes"><i class="fa fa-check"></i><b>5.4</b> Format axes</a></li>
+<li class="chapter" data-level="5.5" data-path="create-plots.html"><a href="create-plots.html#add-trend-lines"><i class="fa fa-check"></i><b>5.5</b> Add trend lines</a></li>
+<li class="chapter" data-level="5.6" data-path="create-plots.html"><a href="create-plots.html#format-chart-area"><i class="fa fa-check"></i><b>5.6</b> Format chart area</a></li>
+<li class="chapter" data-level="5.7" data-path="create-plots.html"><a href="create-plots.html#export-plot-to-word-document"><i class="fa fa-check"></i><b>5.7</b> Export plot to Word document</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>6</b> Tables</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tables.html"><a href="tables.html#calculate-compound-growth-rates-in-excel"><i class="fa fa-check"></i><b>6.1</b> Calculate compound growth rates in Excel</a></li>
+<li class="chapter" data-level="6.2" data-path="tables.html"><a href="tables.html#formatting-tables-in-excel"><i class="fa fa-check"></i><b>6.2</b> Formatting tables in Excel</a></li>
+<li class="chapter" data-level="6.3" data-path="tables.html"><a href="tables.html#export-an-excel-table-to-a-word-document"><i class="fa fa-check"></i><b>6.3</b> Export an Excel table to a Word document</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html"><i class="fa fa-check"></i><b>7</b> Using AI tools with Excel</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#what-are-large-language-model-llm"><i class="fa fa-check"></i><b>7.1</b> What are Large Language Model (LLM)?</a></li>
+<li class="chapter" data-level="7.2" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#what-is-excel-vba"><i class="fa fa-check"></i><b>7.2</b> What is Excel VBA?</a></li>
+<li class="chapter" data-level="7.3" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#using-ai-to-write-excel-vba-code"><i class="fa fa-check"></i><b>7.3</b> Using AI to write Excel VBA code</a></li>
+<li class="chapter" data-level="7.4" data-path="using-ai-tools-with-excel.html"><a href="using-ai-tools-with-excel.html#using-copilot-in-excel"><i class="fa fa-check"></i><b>7.4</b> Using Copilot in Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Penn World Table (PWT) in Excel</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="using-ai-tools-with-excel" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Using AI tools with Excel<a href="using-ai-tools-with-excel.html#using-ai-tools-with-excel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Many AI tools are embedded into Excel. We have already used some of these features in previous chapters. When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes (“Formula by Example”). Similarly, when creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in “Recommended charts”.</p>
+<p>In this chapter, we will present how a specific category of AI tools called Large Language Models (LLM) can be used to 1) write VBA code to perform tasks in Excel and 2) perform tasks directly in Excel using Microsoft Copilot.</p>
+<p>The key messages are:</p>
+<ol style="list-style-type: decimal">
+<li>There is a code behind every task performed in Excel and AI tools work by transforming prompts into code.</li>
+<li>Whether you are asking AI tools to write code or to perform a task directly, the main difficulty is to write a prompt that will get the desired task done.</li>
+</ol>
+<p>This chapter was written in March 2024. By the time you read this, AI tools might have become more efficient at performing the tasks asked of them here.</p>
+<div id="what-are-large-language-model-llm" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> What are Large Language Model (LLM)?<a href="using-ai-tools-with-excel.html#what-are-large-language-model-llm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Go to <a href="https://copilot.microsoft.com/">Microsoft Copilot</a> or <a href="https://chat.openai.com/">ChatGPT</a> and write the following prompts:</p>
+<p><code>Explain to me what is Microsoft Copilot / ChatGPT / Large language models</code></p>
+<p><code>Explain to me how to use Excel VBA</code></p>
+</div>
+<div id="what-is-excel-vba" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> What is Excel VBA?<a href="using-ai-tools-with-excel.html#what-is-excel-vba" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>VBA stands for <strong>Visual Basic for Applications</strong>. It is a programming tool that can be used to perform operations in Excel (and other office programs). Most operations performed in Excel can be programmed in VBA instead of being performed manually as exemplified in the previous chapters.</p>
+<p>However, it does not mean that coding in Excel is the most efficient or appropriate method! It is mostly useful when you have to do repetitive tasks, in which case it may be convenient to automate them using code. For example, you might want to create the plot of GDP per capita for multiple countries using the same format and style so that the plots are easily comparable.</p>
+<p>It is now possible to ask Microsoft Copilot to perform simple tasks in Excel. The next section shows you what is happening behind the scene when you are asking Copilot to perform simple tasks in Excel.</p>
+</div>
+<div id="using-ai-to-write-excel-vba-code" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Using AI to write Excel VBA code<a href="using-ai-tools-with-excel.html#using-ai-to-write-excel-vba-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I am using this Excel sheet entitled “Data_US_LP” containing US data on real GDP, the total number of employees and the average number of hours worked per employees between 1950 and 2019:</p>
+<p><img src="images/Copilot1.png" /><!-- --></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Objective: I want to write a code in Excel VBA, which will create a new variable, GDP per hour worked, using the data in columns B, C and D and plot it against time using the dates in column A.</strong></td>
+</tr>
+</tbody>
+</table>
+<p>In here I am using <a href="https://copilot.microsoft.com/">Microsoft Copilot</a>, but the same procedure can be done using ChatGPT or other AI tools. I write the following prompt for Copilot:</p>
+<p><strong>Prompt</strong></p>
+<p><code>I am using an Excel Spreadsheet entitled "Data_US_LP" with Year in column A, Real GDP in column B, Number of employees in column C and Average number of hours worked per employee in column D. Can you write a code in Excel VBA to construct a new variable entitled GDP per hour worked in column E?</code></p>
+<p><strong>Reply (Copilot)</strong></p>
+<pre><code>Sub CalculateGDPPerHourWorked()
+    Dim ws As Worksheet
+    Dim LastRow As Long
+    Dim i As Long
+
+    &#39; Set the worksheet
+    Set ws = ThisWorkbook.Sheets(&quot;Data_US_LP&quot;)
+
+    &#39; Find the last row of data
+    LastRow = ws.Cells(ws.Rows.Count, &quot;A&quot;).End(xlUp).Row
+
+    &#39; Loop through each row
+    For i = 2 To LastRow
+        &#39; Calculate GDP per hour worked
+        ws.Cells(i, &quot;E&quot;).Value = ws.Cells(i, &quot;B&quot;).Value / (ws.Cells(i, &quot;C&quot;).Value * ws.Cells(i, &quot;D&quot;).Value)
+    Next i
+
+    &#39; Set column E header
+    ws.Cells(1, &quot;E&quot;).Value = &quot;GDP per hour worked&quot;
+End Sub
+</code></pre>
+<p><strong>What is this VBA code doing? </strong></p>
+<p>This VBA code is a Sub procedure, a series of statements enclosed by “Sub” and “End Sub” that performs actions. Here it creates a new variable in column E but below we will see that a sub may also be used to create plots. It is possible to follow what the code is doing:</p>
+<ul>
+<li>Define the dimension of the objects it is going to work with</li>
+<li>Define which Excel sheet it is going to use (“Data_US_LP”)</li>
+<li>Calculate the number of rows of data in this Excel sheet</li>
+<li>Define a loop to calculate the value of the new variable in each row</li>
+<li>Write the name for the new variable in the first row (“GDP per hour worked”)</li>
+</ul>
+<p><strong>How to run an Excel VBA code in Excel:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Go to your Excel spreadsheet entitled “Data_US-LP”</li>
+<li>Press <code>Alt + F11</code>. This should open the VBA.</li>
+<li>Go to <code>Insert</code> and select <code>Module</code>. This opens a blank script (module)</li>
+<li>Copy the code into the blank script and close the VBA.</li>
+<li>In the Excel spreadsheet, press <code>Alt + F8</code>.</li>
+<li>Select “CalculateGDPPerHourWorked” and press <code>Run</code></li>
+</ol>
+<video src="media/ExcelVBA.mp4" width="700" height="540" controls>
+</video>
+<p><strong>Result (Copilot)</strong></p>
+<p><img src="images/Copilot2.png" /><!-- --></p>
+<p>The code instructed Excel to create a new variable GDP per hour worked in column E using the appropriate formula, ie by divided real GDP (column B) by the total number of hours worked, which the product of the number of employees (column C) and the average number of hours worked (column D).</p>
+<p><strong>Prompt</strong></p>
+<p><code>Now can you write an Excel VBA code to create a line plot or a time series plot of GDP per hour worked using Year to label the x-axis. Do not plot Year alongside GDP per hour worked and remove the legend</code></p>
+<p><strong>Reply (Copilot)</strong></p>
+<pre><code>Sub PlotGDPperHour()
+    Dim ws As Worksheet
+    Dim LastRow As Long
+    Dim ChartObj As ChartObject
+    Dim Chart As Chart
+
+    &#39; Set the worksheet
+    Set ws = ThisWorkbook.Sheets(&quot;Data_US_LP&quot;)
+
+    &#39; Find the last row of data
+    LastRow = ws.Cells(ws.Rows.Count, &quot;A&quot;).End(xlUp).Row
+
+    &#39; Add a chart object
+    Set ChartObj = ws.ChartObjects.Add(Left:=ws.Cells(1, &quot;G&quot;).Left, Width:=375, Top:=ws.Cells(1, &quot;G&quot;).Top, Height:=225)
+
+    &#39; Set the chart
+    Set Chart = ChartObj.Chart
+
+    &#39; Set the data source
+    Chart.SetSourceData Source:=ws.Range(ws.Cells(2, &quot;E&quot;), ws.Cells(LastRow, &quot;E&quot;))
+
+    &#39; Set the chart type
+    Chart.ChartType = xlLine
+
+    &#39; Set the x-axis labels
+    Chart.Axes(xlCategory).CategoryNames = ws.Range(ws.Cells(2, &quot;A&quot;), ws.Cells(LastRow, &quot;A&quot;))
+
+    &#39; Set the chart title
+    Chart.HasTitle = True
+    Chart.ChartTitle.Text = &quot;GDP per Hour Worked Over Time&quot;
+
+    &#39; Set the x-axis title
+    Chart.Axes(xlCategory, xlPrimary).HasTitle = True
+    Chart.Axes(xlCategory, xlPrimary).AxisTitle.Text = &quot;Year&quot;
+
+    &#39; Set the y-axis title
+    Chart.Axes(xlValue, xlPrimary).HasTitle = True
+    Chart.Axes(xlValue, xlPrimary).AxisTitle.Text = &quot;GDP per Hour Worked&quot;
+
+    &#39; Remove the legend
+    Chart.HasLegend = False
+End Sub
+</code></pre>
+<p>To run the code in Excel, follow the same steps as before. Here is the plot we obtain by running this code.</p>
+<p><img src="images/Copilot3.png" /><!-- --></p>
+<p>Next, I ask Copilot to make some changes to the code to improve the appearance of the plot: change the title of the plot because it is a bit vague, change the colour of the line, increase the interval of time between dates, …</p>
+<p><strong>Prompt</strong></p>
+<p><code>Is it possible to modify this code so that the interval between the labels on the x-axis is ten units, the line colour is black, the x-axis title is removed and the chart title is "GDP per hour worked in the US in $/hr"?</code></p>
+<p><strong>Reply (Copilot)</strong></p>
+<pre><code>Sub PlotGDPperHour()
+    Dim ws As Worksheet
+    Dim LastRow As Long
+    Dim ChartObj As ChartObject
+    Dim Chart As Chart
+    Dim Series As Series
+
+    &#39; Set the worksheet
+    Set ws = ThisWorkbook.Sheets(&quot;Data_US_LP&quot;)
+
+    &#39; Find the last row of data
+    LastRow = ws.Cells(ws.Rows.Count, &quot;A&quot;).End(xlUp).Row
+
+    &#39; Add a chart object
+    Set ChartObj = ws.ChartObjects.Add(Left:=ws.Cells(1, &quot;G&quot;).Left, Width:=375, Top:=ws.Cells(1, &quot;G&quot;).Top, Height:=225)
+
+    &#39; Set the chart
+    Set Chart = ChartObj.Chart
+
+    &#39; Set the data source
+    Chart.SetSourceData Source:=ws.Range(ws.Cells(2, &quot;E&quot;), ws.Cells(LastRow, &quot;E&quot;))
+
+    &#39; Set the chart type
+    Chart.ChartType = xlLine
+
+    &#39; Set the x-axis labels
+    Chart.Axes(xlCategory).CategoryNames = ws.Range(ws.Cells(2, &quot;A&quot;), ws.Cells(LastRow, &quot;A&quot;))
+
+    &#39; Set the x-axis label interval
+    Chart.Axes(xlCategory).TickLabelSpacing = 10
+
+    &#39; Remove the x-axis title
+    Chart.Axes(xlCategory, xlPrimary).HasTitle = False
+
+    &#39; Set the chart title
+    Chart.HasTitle = True
+    Chart.ChartTitle.Text = &quot;GDP per hour worked in the US in $/hr&quot;
+
+    &#39; Set the y-axis title
+    Chart.Axes(xlValue, xlPrimary).HasTitle = True
+    Chart.Axes(xlValue, xlPrimary).AxisTitle.Text = &quot;GDP per Hour Worked&quot;
+
+    &#39; Remove the legend
+    Chart.HasLegend = False
+
+    &#39; Set the line color to black
+    Set Series = Chart.SeriesCollection(1)
+    Series.Format.Line.ForeColor.RGB = RGB(0, 0, 0)
+End Sub
+
+</code></pre>
+<p><img src="images/Copilot4.png" /><!-- --></p>
+<p><strong>Remarks</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><strong>What Copilot did well</strong>: it correctly calculated GDP per hour worked given the description of the three variables variables used to calculate it (Real GDP, number of employees and average number of hours worked per employees)</li>
+<li><strong>What Copilot did less well</strong>: I have not shown the intermediate steps but it struggled to create a line plot that does not represent “Year” alongside GDP per hour worked but use it to label the x-axis. In other words, it initially produced a clearly nonsensical plot. AI tools already embedded into Excel such as “Recommended Charts” are better in this sense. The main reason it took me some time to obtain the correct code is probably that I unable to describe precisely what I wanted to achieve.</li>
+</ol>
+</div>
+<div id="using-copilot-in-excel" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Using Copilot in Excel<a href="using-ai-tools-with-excel.html#using-copilot-in-excel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section, we will see how Copilot can be used <em>within</em> Excel to perform the same tasks as in the previous section. To perform these operations, you will need to use a computer with Copilot for Microsoft 365 installed in it.</p>
+<p>This feature has limited applications as of now but is likely to improve in the near future.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="useful-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

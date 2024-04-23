@@ -1,0 +1,688 @@
+--- 
+title: "The Penn World Table (PWT) in Excel"
+author: "Marion Prat"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+#bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+#description: |
+#  This is a minimal example of using the bookdown package to write a book.
+#  The HTML output format for this example is bookdown::gitbook,
+#  set in the _output.yml file.
+link-citations: yes
+
+---
+
+# Introduction {-}
+
+Note that this resource is still a work in progress. You can write to me at: marion.prat@bristol.ac.uk.
+
+In this tutorial, we will show how to extract useful empirical facts about long-run growth from the Penn World Table (PWT) using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950). 
+
+<span style="color: blue;">**Download**</span> the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank">**here**</a> and **save** it in a folder entitled PWT. The spreadsheet contains three sheets: "Info", "Legend" and "Data".
+
+```{r ExcelPWT, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT.png"))
+
+```
+
+Before going any further, check the definition of the variables in the "Legend" sheet. Why are there so many different measures of real GDP? How do they differ?
+
+```{r ExcelPWT_legend, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT_legend.png"))
+
+```
+
+The "Data" sheet contains the dataset.
+
+```{r ExcelPWT_data, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT_data.png"))
+
+```
+
+Although the layout of this Data sheet may appear obscure and confusing at first and you may find it difficult to find the data for the country you are interested in, it is in fact very computer friendly. The two columns "country" and "year" makes it possible to store the data for all countries on the same sheet. Do not alter this "Data" sheet. Instead, in this tutorial we will show how to extract information from this data sheet into a new sheet in order to perform operations on a subset of the data. 
+
+# Preparing the dataset
+
+## Extracting the relevant information
+
+Assume we are only interested in working with the variables "year", "rgdpo" and "pop" for the United Kingdom. It will be useful to create a new spreadsheet containing only the data needed for this analysis. We present two methods that can be employed to extract the relevant data from the main spreadsheet.   
+
+**Method 1: Brute force method**
+
+- Click on the arrow next to "country" (Column B) and select the country of your choice (here the United Kingdom). *Tip*: first click on *Select all* to unselect all countries.
+
+```{r ExcelPWT1, echo=FALSE, out.width="65%", out.height="65%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT1.png"))
+
+```
+
+- To select the rows containing UK data, click on the first row and on the last row in the range while pressing the shift key at the same time. 
+
+- Create a new spreadsheet, rename it "United Kingdom" and paste the data. Delete all the columns that are not needed.
+
+- Go to *Insert* and click on *Table*. In the "Create Table" box, select "My table has headers" and click *OK*.
+
+```{r ExcelPWT2, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT2.png"))
+
+```
+
+- The following table should appear.
+
+```{r ExcelPWT2b, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT2b.png"))
+
+```
+
+**Method 2: Smart method (more likely to avoid mistakes)**
+
+- Go to *Data*, and click on *Get Data*
+
+```{r ExcelPWT3, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT3.png"))
+
+```
+
+- Select *From File*, then *From Excel Workbook*
+
+```{r ExcelPWT4, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT4.png"))
+
+```
+
+- Select **pwt1001** (in the folder where you saved it) and click on *Import*. In the *Navigator* box, select the *Data* spreadsheet and press *Transform Data*
+
+```{r ExcelPWT5, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT5.png"))
+
+```
+
+- In the *Data - Power Query Editor* box, press the arrow next to *country* and select *United Kingdom* 
+
+```{r ExcelPWT6, echo=FALSE, out.width="85%", out.height="85%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT6.png"))
+
+```
+
+- Press the arrow next to *Choose Columns* and select *year*, *rgdpo* and *pop*
+
+```{r ExcelPWT7, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT7.png"))
+
+```
+
+- In the *Properties* on the right, write the name of the new spreadsheet ("United Kingdom"). 
+
+```{r ExcelPWT8a, echo=FALSE, out.width="85%", out.height="85%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT8a.png"))
+
+```
+
+- Then click on *Close & Load* to create the new spreadsheet
+
+```{r ExcelPWT8b, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT8b.png"))
+
+```
+
+- The new spreadsheet "United Kingdom" contains a table with three columns corresponding to "year", "rgdpo" and "pop"
+
+```{r ExcelPWT9, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT9.png"))
+
+```
+
+
+## Freezing panes
+
+To freeze the top row, go to *View*, then *Freeze pane* and select *Freeze Top Row*.
+
+```{r ExcelPWT10, echo=FALSE}
+
+knitr::include_graphics(rep("images/ExcelPWT10.png"))
+
+```
+
+The top row remains visible while scrolling through the rest of the worksheet. Similarly it is possible to freeze the first column.
+
+## Hiding rows or columns
+
+- To show data for selected years only, for example the first and the last (1950 and 2019), click on the arrow next to *year* and select "1950" and "2019", then click *OK*.
+
+```{r ExcelPWT11, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT11.png"))
+
+```
+
+Only the first and last observations appear!
+
+```{r ExcelPWT12, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT12.png"))
+
+```
+
+- To hide a column (or a row), right click on its letter (or number) header (eg "C") and select *hide*. Select *unhide* to reverse this action.
+
+```{r ExcelPWT13, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT13.png"))
+
+```
+
+<span style="color: blue;">**Practice question**</span>: 
+
+Create a new spreadsheet entitled "1970" containing the three entries "country", "rgdpo" and "pop" for the year 1970. For how many countries does this information exist? Select the rows corresponding to the United Kingdom and Nigeria.  
+
+## Sorting observations in ascending or descending order
+
+In the "1970" spreadsheet, countries by default are listed in alphabetical order in the . To sort the countries from the wealthiest to the poorest in terms of GDP, click on the arrow next to "rgdpo" and select "Sort Largest to smallest" to rearrange the countries in descending values of GDP.
+
+```{r ExcelPWT14, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT14.png"))
+
+```
+
+
+# Calculations in Excel
+
+## Basic arithmetic calculations
+
+- A formula in Excel always starts with an equal sign =
+- Arithmetic operators: + (addition), - (subtraction), * (multiplication), / (division), ^ (exponentiation). 
+- **Example 1**: to calculate "$3 + 2 \times 4 + 6^2$" in Excel, select a cell, type:
+```{r ExcelPWT15, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT15.png"))
+
+```
+and press "Enter".
+- **Example 2**: to calculate "$3 \times (3+8) + \frac{2}{3+1} + 6^{1/2}$" in Excel, select a cell, type:
+```{r ExcelPWT15b, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT15b.png"))
+
+```
+and  press "Enter".
+
+## Excel built-in functions
+
+- For more complex operations, it will be more convenient to use the Excel built-in functions. 
+- To let Excel help you find the relevant function and use it, select a cell and write an equal sign. In the top left corner, a drop-down menu appears with a list of the most commonly used formulas. If the function you are looking for does not appear here, go to "More Functions" at the bottom of the menu. A search box will prompt you to describe the function you are interested in.
+
+```{r ExcelPWT16, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT16.png"))
+
+```
+
+- **Example**: the function "AVERAGE" calculates the average of two or several numbers. To calculate the average of 6 and 4, enter 4 and 6 in the "Function Arguments" box or write directly "=AVERAGE(6,4)".
+
+```{r ExcelPWT17, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT17.png"))
+
+```
+
+## Write formulas referring to values in other cells
+
+- In Excel, columns are indexed by letters and rows by numbers. Each cell therefore can be referenced by their column letter and row number. For example, "A3", "C1", "F6". 
+- **Example 1**: to calculate "$3 + 2 \times 4 + 6^2$", it is possible to enter separately the values 3, 2, 4 and 6 into separate cells and then write a formula to perform this operation referring to the corresponding cells as follows: 
+```{r ExcelPWT15c, echo=FALSE, out.width="70%", out.height="70%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT15c.png"))
+
+```
+where "A2" is 3, "B2" is 2, "C2" is 4 and "D2" is 6. 
+
+- **Example 2**: to calculate the average of the four numbers used in the previous example using the AVERAGE() function, select the cells comprising the range of values you want to include in the calculation:
+```{r ExcelPWT15d, echo=FALSE, out.width="70%", out.height="70%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT15d.png"))
+
+```
+
+# Creating new variables
+
+## Generating a new GDP per capita series
+
+- Using the data on GDP and population for the United Kingdom between 1950 and 2019 that we have extracted in the "United Kingdom" sheet we can generate a series of values for UK GDP per capita. For this, we need to create a formula referring to values in other cells.
+
+- To calculate UK GDP per capita in 1950 we need to divide UK output ("rgdpo") by UK population ("pop"). Select the cell where you want the result to appear (eg "D2"). The relevant formula for GDP per capita in 1950 is "=B2/C2". "B2" is UK GDP in 1950, "C2" is UK population in 1950 and "/" indicates that you are dividing the former by the latter. Instead of writing "B2" and "C2" you may just click on the corresponding cells.
+
+```{r ExcelPWT18, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT18.png"))
+
+```
+
+- To calculate UK GDP per capita in all subsequent years, we need to apply the same formula to all rows ( representing years) in the dataset. 
+- To do this you can either copy and paste the formula in all subsequent cells in the D column or double click on the "+" in the bottom right corner of D2, or click on the "+" and drag it over all the subsequent cells in the D column (whatever works for you!). 
+
+```{r ExcelPWT19, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT19.png"))
+
+```
+
+- If the data is presented in a table (as below), the formula in "D2" will apply automatically to all rows in column D.
+
+```{r ExcelPWT20, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT20.png"))
+
+```
+
+## Calculating growth rates
+
+Using the UK GDP per capita series, we can now create the series of annual growth rates of GDP per capita using the formula $g_y = \frac{y_t}{y_{t-1}} -1$. For example, the annual growth rate of UK GDP per capita in 1951 is equal to the ratio of GDP per capita in 1951 ("D3") and in 1950 ("D2") minus 1. 
+
+```{r ExcelPWT21, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT21.png"))
+
+```
+
+Then copy the formula in all subsequent cells to generate the whole series of annual growth rates.
+
+## Generating a series for the logarithm of a variable
+
+To calculate a series for the natural logarithm of UK GDP per capita, use the LN() function:
+ 
+```{r ExcelPWT21b, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT21b.png"))
+
+
+```
+
+Then copy the formula in all subsequent cells to generate the whole series of annual growth rates. 
+*Important*: to calculate the natural logarithm, do not use the LOG() function, which is only useful if you want to calculate the logarithm with a different base!
+
+
+# Formatting numbers
+
+```{r ExcelPWT22, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT22.png"))
+
+```
+
+The data in the table above contains numbers with various decimal points and the GDP growth rate in column E is expressed in decimal points. It is possible to make the data more presentable by using the "Number" options in the top ribbon (first select the "Home" tab).
+
+- To express the annual growth rate in % instead of decimal points, select column D and click on the "%" icon. 
+
+```{r ExcelPWT23, echo=FALSE, out.width="85%", out.height="85%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT23.png"))
+
+```
+
+- The same number is now expressed in %. However, the growth rate have been rounded to the nearest integer value. It might be useful to to have a more precise number displayed. To increase the number of decimal points, click on the icon indicated by the red arrow below as many time as you want to add decimal points.
+
+```{r ExcelPWT25, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT25.png"))
+
+```
+
+- The variables "rgdpo" and "GDPPC" are large numbers expressed in millions of $, which may be easier to read by having a comma separate the 1000s. This can be done by selecting the columns on which you want to apply this change and clicking on the comma icon.
+
+```{r ExcelPWT28, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT28.png"))
+
+```
+
+The resulting table is easier to read.  
+
+```{r ExcelPWT29, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT29.png"))
+
+```
+
+
+# Create plots
+
+## Create a line chart
+
+To create a plot of the logarithm of UK GDP, select the "year" and "lnGDPPC" column, go to "Insert" and click on "Recommended charts". Select the plot which has "year" on x-axis and "lnGDPPC" on the y-axis among the options proposed. 
+
+<video src="media/video1.mp4" width="700" height="540" controls></video>
+
+**Note**: you may be tempted to select fancy layouts using the "Quick Layout" tab. Although it may be helpful in some cases, it is more likely to add unnecessary detail and therefore be more confusing to read. Better to invest in learning the chart elements can be modified to serve the purpose of each individual graph.
+
+## Log scale
+
+## Titles
+
+To add or remove a char title, click on the chart and go to "Chart Design", then "Add Chart Element". 
+
+- Select "Chart title" to add or remove a plot title.  
+- Select "Axis Titles" to add titles to the horizontal and vertical axis.
+
+<video src="media/video2.mp4" width="700" height="540" controls></video>
+
+
+**Note**: depending on the plot, adding titles may not add much information. For example, in the case of the plot of the logarithm of UK GDP per capita, adding axis titles do not add much information as it is clear already that the horizontal axis represents dates and the plot title already explains what it represents. In other cases, it may be impossible to understand what is represented without axis titles. 
+
+## Format axes
+
+Formatting axes properly may go a long way to produce a graph that is informative and immediately understandable. 
+
+- To format the horizontal axis: right click on the dates on the chart and select "Format axis". To have the dates displayed only every 10 years, use the "Label" option.
+- To format the vertical axis: right click on the vertical axis and select "Format axis". To modify the range of the vertical axis so that it better fits the range in the data, change the minimum or the maximum in the "Bounds" tab. To reduce/increase the number of ticks, change "Major" in the "Units tab. To reduce the number of decimal points, go to the "Number" option and specify your preferred number of decimal points (eg 1). 
+
+<video src="media/video3.mp4" width="700" height="540" controls></video>
+
+## Add trend lines
+
+To add a trend line, click on the chart and go to "Chart Design" and "Add Chart Element". Then go to "Trendline" and select the shape of trend line that is the most relevant for your plot (here a linear trend because we plot the logarithm of GDP). 
+
+<video src="media/video4.mp4" width="700" height="540" controls></video>
+
+## Format chart area
+
+Finally, altering the appearance of the line plot may improve the clarity of the graph. You may alter the thickness, the colour and the pattern of the line plot. To do so click on the line you wish to apply these changes to and select your preferred options. 
+
+<video src="media/video5.mp4" width="700" height="540" controls></video>
+
+## Export plot to Word document
+
+<video src="media/video6.mp4" width="700" height="540" controls></video>
+
+**Note**: if you do not paste the plot as a picture in the Word document, it is the entire Excel sheet that you are including into your Word document. Pasting the document as a picture (as in the video) may be more efficient.
+
+# Tables
+
+We now want to calculate the trend growth rate of UK GDP per capita between 1950 and 2019 using our data from the Penn World Tables. In addition to the trend growth over the full sample period, we would like to calculate it over three subperiods that we have identified using the plot of the logarithm of GDP per capita: 1950-1990, 1990-2008 and 2008-2019. Finally we would like to present the results in a table in a Word document.
+
+## Calculate compound growth rates in Excel
+
+To calculate the trend growth rate we use the compound growth rate formula: $g = \left(\frac{y_{end}}{y_{start}}\right)^{\frac{1}{end-start}}-1$ (multiplied by 100 to express the growth rate in %)
+
+<video src="media/video7.mp4" width="700" height="540" controls></video>
+
+## Formatting tables in Excel
+
+In this video, it is shown how to wrap text within a cell, how to center numbers (or text) within a cell, how to alter the background colour of the cells and how to add borders. 
+
+<video src="media/video8.mp4" width="700" height="540" controls></video>
+
+The table is now ready to be exported into a Word document.
+
+## Export an Excel table to a Word document
+
+<video src="media/video9.mp4" width="700" height="540" controls></video>
+
+# Using AI tools with Excel
+
+Many AI tools are embedded into Excel. We have already used some of these features in previous chapters. When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes ("Formula by Example"). Similarly, when creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in "Recommended charts".
+
+In this chapter, we will present how a specific category of AI tools called Large Language Models (LLM) can be used to 1) write VBA code to perform tasks in Excel and 2) perform tasks directly in Excel using Microsoft Copilot.
+
+The key messages are:
+
+1. There is a code behind every task performed in Excel and AI tools work by transforming prompts into code.
+2. Whether you are asking AI tools to write code or to perform a task directly, the main difficulty is to write a prompt that will get the desired task done.
+
+This chapter was written in March 2024. By the time you read this, AI tools might have become more efficient at performing the tasks asked of them here.
+
+## What are Large Language Model (LLM)?
+
+Go to [Microsoft Copilot](https://copilot.microsoft.com/) or [ChatGPT](https://chat.openai.com/) and write the following prompts: 
+
+`Explain to me what is Microsoft Copilot / ChatGPT / Large language models`
+
+`Explain to me how to use Excel VBA`
+
+## What is Excel VBA?
+
+VBA stands for **Visual Basic for Applications**. It is a programming tool that can be used to perform operations in Excel (and other office programs). Most operations performed in Excel can be programmed in VBA instead of being performed manually as exemplified in the previous chapters. 
+
+However, it does not mean that coding in Excel is the most efficient or appropriate method! It is mostly useful when you have to do repetitive tasks, in which case it may be convenient to automate them using code. For example, you might want to create the plot of GDP per capita for multiple countries using the same format and style so that the plots are easily comparable.
+
+It is now possible to ask Microsoft Copilot to perform simple tasks in Excel. The next section shows you what is happening behind the scene when you are asking Copilot to perform simple tasks in Excel. 
+
+
+## Using AI to write Excel VBA code
+
+I am using this Excel sheet entitled "Data_US_LP" containing US data on real GDP, the total number of employees and the average number of hours worked per employees between 1950 and 2019:
+
+```{r Copilot1, echo=FALSE}
+
+knitr::include_graphics(rep("images/Copilot1.png"))
+
+```
+
+-------------------------------------------------------------------------------------------------------
+**Objective: I want to write a code in Excel VBA, which will create a new variable, GDP per hour worked, using the data in columns B, C and D and plot it against time using the dates in column A.** 
+-------------------------------------------------------------------------------------------------------
+
+In here I am using [Microsoft Copilot](https://copilot.microsoft.com/), but the same procedure can be done using ChatGPT or other AI tools. I write the following prompt for Copilot:
+
+**Prompt**
+
+`I am using an Excel Spreadsheet entitled "Data_US_LP" with Year in column A, Real GDP in column B, Number of employees in column C and Average number of hours worked per employee in column D. Can you write a code in Excel VBA to construct a new variable entitled GDP per hour worked in column E?`
+
+**Reply (Copilot)**
+
+```
+Sub CalculateGDPPerHourWorked()
+    Dim ws As Worksheet
+    Dim LastRow As Long
+    Dim i As Long
+
+    ' Set the worksheet
+    Set ws = ThisWorkbook.Sheets("Data_US_LP")
+
+    ' Find the last row of data
+    LastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Loop through each row
+    For i = 2 To LastRow
+        ' Calculate GDP per hour worked
+        ws.Cells(i, "E").Value = ws.Cells(i, "B").Value / (ws.Cells(i, "C").Value * ws.Cells(i, "D").Value)
+    Next i
+
+    ' Set column E header
+    ws.Cells(1, "E").Value = "GDP per hour worked"
+End Sub
+
+```
+**What is this VBA code doing? **
+
+This VBA code is a Sub procedure, a series of statements enclosed by "Sub" and "End Sub" that performs actions. Here it creates a new variable in column E but below we will see that a sub may also be used to create plots. It is possible to follow what the code is doing:
+
+- Define the dimension of the objects it is going to work with
+- Define which Excel sheet it is going to use ("Data_US_LP")
+- Calculate the number of rows of data in this Excel sheet
+- Define a loop to calculate the value of the new variable in each row
+- Write the name for the new variable in the first row ("GDP per hour worked") 
+
+
+**How to run an Excel VBA code in Excel:**
+
+1. Go to your Excel spreadsheet entitled "Data_US-LP"
+2. Press `Alt + F11`. This should open the VBA.
+3. Go to `Insert` and select `Module`. This opens a blank script (module)
+4. Copy the code into the blank script and close the VBA.
+5. In the Excel spreadsheet, press `Alt + F8`.
+6. Select "CalculateGDPPerHourWorked" and press `Run`
+
+<video src="media/ExcelVBA.mp4" width="700" height="540" controls></video>
+
+**Result (Copilot)**
+
+```{r Copilot2, echo=FALSE}
+
+knitr::include_graphics(rep("images/Copilot2.png"))
+
+```
+
+The code instructed Excel to create a new variable GDP per hour worked in column E using the appropriate formula, ie by divided real GDP (column B) by the total number of hours worked, which the product of the number of employees (column C) and the average number of hours worked (column D).
+
+**Prompt**
+
+`Now can you write an Excel VBA code to create a line plot or a time series plot of GDP per hour worked using Year to label the x-axis. Do not plot Year alongside GDP per hour worked and remove the legend`
+
+**Reply (Copilot)**
+
+```
+Sub PlotGDPperHour()
+    Dim ws As Worksheet
+    Dim LastRow As Long
+    Dim ChartObj As ChartObject
+    Dim Chart As Chart
+
+    ' Set the worksheet
+    Set ws = ThisWorkbook.Sheets("Data_US_LP")
+
+    ' Find the last row of data
+    LastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Add a chart object
+    Set ChartObj = ws.ChartObjects.Add(Left:=ws.Cells(1, "G").Left, Width:=375, Top:=ws.Cells(1, "G").Top, Height:=225)
+
+    ' Set the chart
+    Set Chart = ChartObj.Chart
+
+    ' Set the data source
+    Chart.SetSourceData Source:=ws.Range(ws.Cells(2, "E"), ws.Cells(LastRow, "E"))
+
+    ' Set the chart type
+    Chart.ChartType = xlLine
+
+    ' Set the x-axis labels
+    Chart.Axes(xlCategory).CategoryNames = ws.Range(ws.Cells(2, "A"), ws.Cells(LastRow, "A"))
+
+    ' Set the chart title
+    Chart.HasTitle = True
+    Chart.ChartTitle.Text = "GDP per Hour Worked Over Time"
+
+    ' Set the x-axis title
+    Chart.Axes(xlCategory, xlPrimary).HasTitle = True
+    Chart.Axes(xlCategory, xlPrimary).AxisTitle.Text = "Year"
+
+    ' Set the y-axis title
+    Chart.Axes(xlValue, xlPrimary).HasTitle = True
+    Chart.Axes(xlValue, xlPrimary).AxisTitle.Text = "GDP per Hour Worked"
+
+    ' Remove the legend
+    Chart.HasLegend = False
+End Sub
+
+```
+To run the code in Excel, follow the same steps as before. Here is the plot we obtain by running this code.
+
+```{r Copilot3, echo=FALSE}
+
+knitr::include_graphics(rep("images/Copilot3.png"))
+
+```
+
+Next, I ask Copilot to make some changes to the code to improve the appearance of the plot: change the title of the plot because it is a bit vague, change the colour of the line, increase the interval of time between dates, ... 
+
+**Prompt**
+
+`Is it possible to modify this code so that the interval between the labels on the x-axis is ten units, the line colour is black, the x-axis title is removed and the chart title is "GDP per hour worked in the US in $/hr"?`
+
+**Reply (Copilot)**
+
+```
+Sub PlotGDPperHour()
+    Dim ws As Worksheet
+    Dim LastRow As Long
+    Dim ChartObj As ChartObject
+    Dim Chart As Chart
+    Dim Series As Series
+
+    ' Set the worksheet
+    Set ws = ThisWorkbook.Sheets("Data_US_LP")
+
+    ' Find the last row of data
+    LastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Add a chart object
+    Set ChartObj = ws.ChartObjects.Add(Left:=ws.Cells(1, "G").Left, Width:=375, Top:=ws.Cells(1, "G").Top, Height:=225)
+
+    ' Set the chart
+    Set Chart = ChartObj.Chart
+
+    ' Set the data source
+    Chart.SetSourceData Source:=ws.Range(ws.Cells(2, "E"), ws.Cells(LastRow, "E"))
+
+    ' Set the chart type
+    Chart.ChartType = xlLine
+
+    ' Set the x-axis labels
+    Chart.Axes(xlCategory).CategoryNames = ws.Range(ws.Cells(2, "A"), ws.Cells(LastRow, "A"))
+
+    ' Set the x-axis label interval
+    Chart.Axes(xlCategory).TickLabelSpacing = 10
+
+    ' Remove the x-axis title
+    Chart.Axes(xlCategory, xlPrimary).HasTitle = False
+
+    ' Set the chart title
+    Chart.HasTitle = True
+    Chart.ChartTitle.Text = "GDP per hour worked in the US in $/hr"
+
+    ' Set the y-axis title
+    Chart.Axes(xlValue, xlPrimary).HasTitle = True
+    Chart.Axes(xlValue, xlPrimary).AxisTitle.Text = "GDP per Hour Worked"
+
+    ' Remove the legend
+    Chart.HasLegend = False
+
+    ' Set the line color to black
+    Set Series = Chart.SeriesCollection(1)
+    Series.Format.Line.ForeColor.RGB = RGB(0, 0, 0)
+End Sub
+
+
+```
+
+```{r Copilot4, echo=FALSE}
+
+knitr::include_graphics(rep("images/Copilot4.png"))
+
+```
+
+**Remarks**: 
+
+1. **What Copilot did well**: it correctly calculated GDP per hour worked given the description of the three variables variables used to calculate it (Real GDP, number of employees and average number of hours worked per employees)
+1. **What Copilot did less well**: I have not shown the intermediate steps but it struggled to create a line plot that does not represent "Year" alongside GDP per hour worked but use it to label the x-axis. In other words, it initially produced a clearly nonsensical plot. AI tools already embedded into Excel such as "Recommended Charts" are better in this sense. The main reason it took me some time to obtain the correct code is probably that I unable to describe precisely what I wanted to achieve.
+
+## Using Copilot in Excel
+
+In this section, we will see how Copilot can be used *within* Excel to perform the same tasks as in the previous section. To perform these operations, you will need to use a computer with Copilot for Microsoft 365 installed in it. 
+
+This feature has limited applications as of now but is likely to improve in the near future.
+
+
+# Useful resources {-} 
+
+Microsoft support: <a href="https://support.microsoft.com/en-us/office/excel-video-training-9bc05390-e94c-46af-a5b3-d7c22f6990bb" target="_blank">Excel video training website</a>
+
+Microsoft Excel 365 Bible. Ebook 2022 available via the University library website. <a href="https://bris.on.worldcat.org/oclc/1298513173" target="_blank">Link</a>
