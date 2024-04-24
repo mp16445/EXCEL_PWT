@@ -1,10 +1,10 @@
 --- 
-title: "The Penn World Table (PWT) in Excel"
+title: "The Penn World Table in Excel"
 author: "Marion Prat"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-#bibliography: [book.bib, packages.bib]
+bibliography: [book.bib]
 url: https://mp16445.github.io/EXCEL_PWT/
 # cover-image: path to the social sharing image like images/cover.jpg
 #description: |
@@ -19,7 +19,7 @@ link-citations: yes
 
 Note that this resource is still a work in progress. You can write to me at: marion.prat@bristol.ac.uk.
 
-In this tutorial, we will show how to extract useful empirical facts about long-run growth from the Penn World Table (PWT) using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950). 
+In this tutorial, we will show how to extract useful empirical facts about long-run growth from the <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank"><span style="color: black;">**Penn World Table**</span></a> [@PWT] using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950). 
 
 **Download** the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;">**here**</span></a> and **save** it in a folder entitled PWT. The spreadsheet contains three sheets: "Info", "Legend" and "Data".
 
@@ -47,8 +47,8 @@ knitr::include_graphics(rep("images/ExcelPWT_data.png"))
 
 Each row corresponds to observations for a given country in a given year and each column represents a variable. Although this layout may appear confusing at first, it is in fact computer friendly: 
 
-- First, it is easy to use a *Power Query* in the *Data* tab (accessed via "Get Data") to create a new Excel sheet on any subset of the data you are interested in analysing. This is what we are going to do in this tutorial.
-- Second, it is compatible with how statistical software such as R work as they store variables in column vectors. 
+- First, it is easy to use a *Power Query* in the *Data* tab (accessed via "Get Data") to create a new Excel sheet containing any subset of the data you are interested in analysing. This is what we are going to do in this tutorial.
+- Second, it is compatible with how statistical software (such as R) work as they store variables in column vectors. 
 
 
 # Preparing the dataset
