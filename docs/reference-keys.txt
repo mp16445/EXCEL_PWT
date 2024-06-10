@@ -24,5 +24,6 @@ tables
 calculate-compound-growth-rates-in-excel
 formatting-tables-in-excel
 export-an-excel-table-to-a-word-document
-ai-large-language-models-in-excel
-using-gpts-to-find-an-excel-function
+large-language-models-in-excel
+write-an-excel-formula
+extract-data-and-create-new-variables

@@ -23,7 +23,7 @@
 <meta name="author" content="Marion Prat" />
 
 
-<meta name="date" content="2024-04-24" />
+<meta name="date" content="2024-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,9 +135,10 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="tables.html"><a href="tables.html#formatting-tables-in-excel"><i class="fa fa-check"></i><b>6.2</b> Formatting tables in Excel</a></li>
 <li class="chapter" data-level="6.3" data-path="tables.html"><a href="tables.html#export-an-excel-table-to-a-word-document"><i class="fa fa-check"></i><b>6.3</b> Export an Excel table to a Word document</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html"><i class="fa fa-check"></i><b>7</b> AI Large language models in Excel</a>
+<li class="chapter" data-level="7" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html"><i class="fa fa-check"></i><b>7</b> Large language models in Excel</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html#using-gpts-to-find-an-excel-function"><i class="fa fa-check"></i><b>7.1</b> Using GPTs to find an Excel function</a></li>
+<li class="chapter" data-level="7.1" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html#write-an-excel-formula"><i class="fa fa-check"></i><b>7.1</b> Write an Excel formula</a></li>
+<li class="chapter" data-level="7.2" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html#extract-data-and-create-new-variables"><i class="fa fa-check"></i><b>7.2</b> Extract data and create new variables</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -163,18 +164,18 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">The Penn World Table in Excel</h1>
 <p class="author"><em>Marion Prat</em></p>
-<p class="date"><em>2024-04-24</em></p>
+<p class="date"><em>2024-06-10</em></p>
 </div>
 <div id="introduction" class="section level1 unnumbered hasAnchor">
 <h1>Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Note that this resource is still a work in progress. You can write to me at: <a href="mailto:marion.prat@bristol.ac.uk" class="email">marion.prat@bristol.ac.uk</a>.</p>
 <p>In this tutorial, we will show how to extract useful empirical facts about long-run growth from the <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank"><span style="color: black;"><strong>Penn World Table</strong></span></a> <span class="citation">(<a href="#ref-PWT">Feenstra, Inklaar, and P.Timmer 2015</a>)</span> using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950).</p>
 <p><strong>Download</strong> the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;"><strong>here</strong></span></a> and <strong>save</strong> it in a folder entitled PWT. The spreadsheet contains three sheets: “Info”, “Legend” and “Data”.</p>
-<p><img src="images/ExcelPWT.png" /><!-- --></p>
+<p><img src="images/ExcelPWT.png" width="958" /></p>
 <p>Before going any further, check the definition of the variables in the “Legend” sheet. Why are there so many different measures of real GDP? How do they differ?</p>
-<p><img src="images/ExcelPWT_legend.png" /><!-- --></p>
+<p><img src="images/ExcelPWT_legend.png" width="958" /></p>
 <p>The “Data” sheet contains the dataset.</p>
-<p><img src="images/ExcelPWT_data.png" /><!-- --></p>
+<p><img src="images/ExcelPWT_data.png" width="960" /></p>
 <p>Each row corresponds to observations for a given country in a given year and each column represents a variable. Although this layout may appear confusing at first, it is in fact computer friendly:</p>
 <ul>
 <li>First, it is easy to use a <em>Power Query</em> in the <em>Data</em> tab (accessed via “Get Data”) to create a new Excel sheet containing any subset of the data you are interested in analysing. This is what we are going to do in this tutorial.</li>

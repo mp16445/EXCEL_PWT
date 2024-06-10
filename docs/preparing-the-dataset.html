@@ -23,7 +23,7 @@
 <meta name="author" content="Marion Prat" />
 
 
-<meta name="date" content="2024-04-24" />
+<meta name="date" content="2024-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,9 +135,10 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="tables.html"><a href="tables.html#formatting-tables-in-excel"><i class="fa fa-check"></i><b>6.2</b> Formatting tables in Excel</a></li>
 <li class="chapter" data-level="6.3" data-path="tables.html"><a href="tables.html#export-an-excel-table-to-a-word-document"><i class="fa fa-check"></i><b>6.3</b> Export an Excel table to a Word document</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html"><i class="fa fa-check"></i><b>7</b> AI Large language models in Excel</a>
+<li class="chapter" data-level="7" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html"><i class="fa fa-check"></i><b>7</b> Large language models in Excel</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html#using-gpts-to-find-an-excel-function"><i class="fa fa-check"></i><b>7.1</b> Using GPTs to find an Excel function</a></li>
+<li class="chapter" data-level="7.1" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html#write-an-excel-formula"><i class="fa fa-check"></i><b>7.1</b> Write an Excel formula</a></li>
+<li class="chapter" data-level="7.2" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html#extract-data-and-create-new-variables"><i class="fa fa-check"></i><b>7.2</b> Extract data and create new variables</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -179,7 +180,7 @@ div.csl-indent {
 <ul>
 <li>The following table should appear.</li>
 </ul>
-<p><img src="images/ExcelPWT2b.png" /><!-- --></p>
+<p><img src="images/ExcelPWT2b.png" width="958" /></p>
 <p><strong>Method 2: Smart method (more likely to avoid mistakes)</strong></p>
 <ul>
 <li>Go to <em>Data</em>, and click on <em>Get Data</em></li>
@@ -192,7 +193,7 @@ div.csl-indent {
 <ul>
 <li>Select <strong>pwt1001</strong> (in the folder where you saved it) and click on <em>Import</em>. In the <em>Navigator</em> box, select the <em>Data</em> spreadsheet and press <em>Transform Data</em></li>
 </ul>
-<p><img src="images/ExcelPWT5.png" /><!-- --></p>
+<p><img src="images/ExcelPWT5.png" width="566" /></p>
 <ul>
 <li>In the <em>Data - Power Query Editor</em> box, press the arrow next to <em>country</em> and select <em>United Kingdom</em></li>
 </ul>
@@ -200,7 +201,7 @@ div.csl-indent {
 <ul>
 <li>Press the arrow next to <em>Choose Columns</em> and select <em>year</em>, <em>rgdpo</em> and <em>pop</em></li>
 </ul>
-<p><img src="images/ExcelPWT7.png" /><!-- --></p>
+<p><img src="images/ExcelPWT7.png" width="538" /></p>
 <ul>
 <li>In the <em>Properties</em> on the right, write the name of the new spreadsheet (“United Kingdom”).</li>
 </ul>
@@ -208,16 +209,17 @@ div.csl-indent {
 <ul>
 <li>Then click on <em>Close &amp; Load</em> to create the new spreadsheet</li>
 </ul>
-<p><img src="images/ExcelPWT8b.png" /><!-- --></p>
+<p><img src="images/ExcelPWT8b.png" width="401" /></p>
 <ul>
 <li>The new spreadsheet “United Kingdom” contains a table with three columns corresponding to “year”, “rgdpo” and “pop”</li>
 </ul>
-<p><img src="images/ExcelPWT9.png" /><!-- --></p>
+<p><img src="images/ExcelPWT9.png" width="957" /></p>
+<p><span style="color: blue;"><strong>Practice exercise</strong></span>: create a new spreadsheet entitled “1970” containing the three entries “country”, “rgdpo” and “pop” for the year 1970.</p>
 </div>
 <div id="freezing-panes" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Freezing panes<a href="preparing-the-dataset.html#freezing-panes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To freeze the top row, go to <em>View</em>, then <em>Freeze pane</em> and select <em>Freeze Top Row</em>.</p>
-<p><img src="images/ExcelPWT10.png" /><!-- --></p>
+<p><img src="images/ExcelPWT10.png" width="757" /></p>
 <p>The top row remains visible while scrolling through the rest of the worksheet. Similarly it is possible to freeze the first column.</p>
 </div>
 <div id="hiding-rows-or-columns" class="section level2 hasAnchor" number="1.3">
@@ -235,8 +237,7 @@ div.csl-indent {
 </div>
 <div id="sorting-observations" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Sorting observations<a href="preparing-the-dataset.html#sorting-observations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><span style="color: blue;"><strong>Practice question</strong></span>: create a new spreadsheet entitled “1970” containing the three entries “country”, “rgdpo” and “pop” for the year 1970.</p>
-<p>In the “1970” spreadsheet, countries by default are listed in alphabetical order. To sort the countries from the wealthiest to the poorest in terms of GDP, click on the arrow next to “rgdpo” and select “Sort Largest to smallest” to rearrange the countries in descending values of GDP.</p>
+<p>In the “1970” spreadsheet (<em>See Practice exercise in Section 1.1</em>), countries by default are listed in alphabetical order. To sort the countries from the wealthiest to the poorest in terms of GDP, click on the arrow next to “rgdpo” and select “Sort Largest to smallest” to rearrange the countries in descending values of GDP.</p>
 <p><img src="images/ExcelPWT14.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
 </div>
 </div>

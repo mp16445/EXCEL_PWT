@@ -23,7 +23,7 @@
 <meta name="author" content="Marion Prat" />
 
 
-<meta name="date" content="2024-04-24" />
+<meta name="date" content="2024-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -137,7 +137,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html"><i class="fa fa-check"></i><b>7</b> AI Large language models in Excel</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html#using-gpts-to-find-an-excel-function"><i class="fa fa-check"></i><b>7.1</b> Using GPTs to find an Excel function</a></li>
+<li class="chapter" data-level="7.1" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html#using-llms-to-find-an-excel-function"><i class="fa fa-check"></i><b>7.1</b> Using LLMs to find an Excel function</a></li>
+<li class="chapter" data-level="7.2" data-path="ai-large-language-models-in-excel.html"><a href="ai-large-language-models-in-excel.html#using-llms-to-perform-complex-tasks"><i class="fa fa-check"></i><b>7.2</b> Using LLMs to perform complex tasks</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -162,21 +163,43 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="ai-large-language-models-in-excel" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> AI Large language models in Excel<a href="ai-large-language-models-in-excel.html#ai-large-language-models-in-excel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Many AI tools are embedded into Excel. We have already used some of these features in previous chapters:</p>
+<p>Many AI tools, among which large language models (LLMs) feature prominently, are embedded into Excel. We have already used some of these features in previous chapters:</p>
 <ul>
 <li>When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes (“Formula by Example”).</li>
 <li>When creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in “Recommended charts”.</li>
 </ul>
-<p>With the incorporation of Microsoft Copilot within Excel, the capabilities of AI tools in Excel is likely to increase.</p>
-<div id="using-gpts-to-find-an-excel-function" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Using GPTs to find an Excel function<a href="ai-large-language-models-in-excel.html#using-gpts-to-find-an-excel-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you do not know how to write a formula in Excel, you may ask an AI tool to suggest a formula.</p>
-<p><span style="color: blue;"><strong>Practice question</strong></span>:</p>
-<ul>
-<li>Type the following prompt in your favorite AI language model (Open AI ChatGPT, Microsoft Copilot, …): “Write a formula to calculate the compounded annual growth rate of GDP in Excel”.</li>
-<li>Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita? Be careful that the GPT may be “hallucinating” an Excel function.</li>
-</ul>
-<p><em>TBA</em></p>
+<p>With the incorporation of Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase.</p>
+<div id="using-llms-to-find-an-excel-function" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Using LLMs to find an Excel function<a href="ai-large-language-models-in-excel.html#using-llms-to-find-an-excel-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you do not know how to write a formula in Excel, you may ask a LLM to suggest a formula.</p>
+<p><span style="color: blue;"><strong>Example: formula for the compound annual growth rate</strong></span>:</p>
+<blockquote>
+<p><strong>Prompt (ChatGPT 4)</strong>:
+I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet. Write an Excel formula I can use to calculate the compounded annual growth rate of GDP between 1950 and 2019. Explain carefully the formula.</p>
+</blockquote>
+<p>ChatGPT 4 offers the following reply:</p>
+<p><img src="images/CGPT4_CAGR.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<p><strong>Is the formula correct (check whether the reasoning is correct)? Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita? Be careful that the GPT may be “hallucinating” an Excel function.</strong></p>
+</div>
+<div id="using-llms-to-perform-complex-tasks" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Using LLMs to perform complex tasks<a href="ai-large-language-models-in-excel.html#using-llms-to-perform-complex-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Large language models can also be used to perform most of the tasks discussed in the previous sections.</p>
+<p><span style="color: blue;"><strong>Example: extracting data and create new variables</strong></span>:</p>
+<blockquote>
+<p><strong>Prompt (ChatGPT 4o)</strong>: (attaching pwt1001.xlsx) Using the PWT10.01 dataset attached, do the following tasks. 1) extract “year”, “rgdpo” and “pop” for entries where “country” is equal to “United Kingdom”. 2) create a new variables for UK GDP per capita using the variables extracted. 3) create a new Excel spreadsheet including the new variable, ready to be downloaded.</p>
+</blockquote>
+<p>ChatGPT 4 offers the following reply:</p>
+<ol style="list-style-type: decimal">
+<li>Python code used to extract the relevant data and create the new variable:</li>
+</ol>
+<p><img src="images/CGPT4o_UK1.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Output: new Excel spreadsheet</li>
+</ol>
+<p><img src="images/CGPT4o_UK.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<p>Opening the spreadsheet</p>
+<p><img src="images/CGPT4o_UK2.png" width="65%" height="65%" style="display: block; margin: auto;" /></p>
+<p><strong>Compare the spreadsheet with that created in Section 1.1. Check that the first entry for UK GDP per capita is correct.</strong></p>
 </div>
 </div>
             </section>

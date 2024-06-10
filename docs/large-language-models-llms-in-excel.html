@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Calculations in Excel | The Penn World Table in Excel</title>
-  <meta name="description" content="Chapter 2 Calculations in Excel | The Penn World Table in Excel" />
+  <title>Chapter 7 Large language models (LLMs) in Excel | The Penn World Table in Excel</title>
+  <meta name="description" content="Chapter 7 Large language models (LLMs) in Excel | The Penn World Table in Excel" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Calculations in Excel | The Penn World Table in Excel" />
+  <meta property="og:title" content="Chapter 7 Large language models (LLMs) in Excel | The Penn World Table in Excel" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Calculations in Excel | The Penn World Table in Excel" />
+  <meta name="twitter:title" content="Chapter 7 Large language models (LLMs) in Excel | The Penn World Table in Excel" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="preparing-the-dataset.html"/>
-<link rel="next" href="creating-new-variables.html"/>
+<link rel="prev" href="tables.html"/>
+<link rel="next" href="useful-resources.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -135,10 +135,10 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="tables.html"><a href="tables.html#formatting-tables-in-excel"><i class="fa fa-check"></i><b>6.2</b> Formatting tables in Excel</a></li>
 <li class="chapter" data-level="6.3" data-path="tables.html"><a href="tables.html#export-an-excel-table-to-a-word-document"><i class="fa fa-check"></i><b>6.3</b> Export an Excel table to a Word document</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html"><i class="fa fa-check"></i><b>7</b> Large language models in Excel</a>
+<li class="chapter" data-level="7" data-path="large-language-models-llms-in-excel.html"><a href="large-language-models-llms-in-excel.html"><i class="fa fa-check"></i><b>7</b> Large language models (LLMs) in Excel</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html#write-an-excel-formula"><i class="fa fa-check"></i><b>7.1</b> Write an Excel formula</a></li>
-<li class="chapter" data-level="7.2" data-path="large-language-models-in-excel.html"><a href="large-language-models-in-excel.html#extract-data-and-create-new-variables"><i class="fa fa-check"></i><b>7.2</b> Extract data and create new variables</a></li>
+<li class="chapter" data-level="7.1" data-path="large-language-models-llms-in-excel.html"><a href="large-language-models-llms-in-excel.html#find-an-excel-function"><i class="fa fa-check"></i><b>7.1</b> Find an Excel function</a></li>
+<li class="chapter" data-level="7.2" data-path="large-language-models-llms-in-excel.html"><a href="large-language-models-llms-in-excel.html#extract-data-and-create-new-variables"><i class="fa fa-check"></i><b>7.2</b> Extract data and create new variables</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -161,39 +161,47 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="calculations-in-excel" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Calculations in Excel<a href="calculations-in-excel.html#calculations-in-excel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="basic-arithmetic-calculations" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Basic arithmetic calculations<a href="calculations-in-excel.html#basic-arithmetic-calculations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A <em>formula</em> in Excel always starts with an equal sign =</p>
-<p><em>Arithmetic operators</em>: + (addition), - (subtraction), * (multiplication), / (division), ^ (exponentiation).</p>
+<div id="large-language-models-llms-in-excel" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Large language models (LLMs) in Excel<a href="large-language-models-llms-in-excel.html#large-language-models-llms-in-excel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Many AI tools, among which large language models (LLMs) feature prominently, are embedded into Excel. We have already used some of these features in previous chapters:</p>
 <ul>
-<li><p><strong>Example 1</strong>: to calculate “<span class="math inline">\(3 + 2 \times 4 + 6^2\)</span>” in Excel, select a cell, type:
-<img src="images/ExcelPWT15.png" width="50%" height="50%" style="display: block; margin: auto;" />
-and press “Enter”.</p></li>
-<li><p><strong>Example 2</strong>: to calculate “<span class="math inline">\(3 \times (3+8) + \frac{2}{3+1} + 6^{1/2}\)</span>” in Excel, select a cell, type:
-<img src="images/ExcelPWT15b.png" width="50%" height="50%" style="display: block; margin: auto;" />
-and press “Enter”.</p></li>
+<li>When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes (“Formula by Example”).</li>
+<li>When creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in “Recommended charts”.</li>
 </ul>
+<p>With the incorporation of Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase.</p>
+<div id="find-an-excel-function" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Find an Excel function<a href="large-language-models-llms-in-excel.html#find-an-excel-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you do not know how to write a formula in Excel, you may ask a LLM to suggest a formula.</p>
+<p><span style="color: blue;"><strong>Example: formula for the compound annual growth rate</strong></span>:</p>
+<blockquote>
+<p><strong>Prompt (ChatGPT 4)</strong>:
+I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet. Write an Excel formula I can use to calculate the compounded annual growth rate of GDP between 1950 and 2019. Explain carefully the formula.</p>
+</blockquote>
+<p>ChatGPT 4 offers the following reply:</p>
+<p><img src="images/CGPT4_CAGR.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<p><span style="color: blue;"><strong>Check</strong></span>:</p>
+<p>Is the formula correct (check whether the reasoning is correct)? Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita? Be careful that the GPT may be “hallucinating” an Excel function.</p>
 </div>
-<div id="excel-built-in-functions" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Excel built-in functions<a href="calculations-in-excel.html#excel-built-in-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For more complex operations, it will be more convenient to use the Excel built-in functions.</p>
-<p>To let Excel help you find the relevant function and use it, select a cell and write an equal sign. In the top left corner, a drop-down menu appears with a list of the most commonly used formulas. If the function you are looking for does not appear here, go to “More Functions” at the bottom of the menu. A search box will prompt you to describe the function you are interested in.</p>
-<p><img src="images/ExcelPWT16.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
-<p><strong>Example</strong>: the function “AVERAGE” calculates the average of two or several numbers. To calculate the average of 6 and 4, enter 4 and 6 in the “Function Arguments” box or write directly “=AVERAGE(6,4)”.</p>
-<p><img src="images/ExcelPWT17.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="write-formulas-referring-to-values-in-other-cells" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Write formulas referring to values in other cells<a href="calculations-in-excel.html#write-formulas-referring-to-values-in-other-cells" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In Excel, columns are indexed by letters and rows by numbers. Each cell therefore can be referenced by their column letter and row number. For example, “A3”, “C1”, “F6”.</p>
-<ul>
-<li><p><strong>Example 1</strong>: to calculate “<span class="math inline">\(3 + 2 \times 4 + 6^2\)</span>”, it is possible to enter separately the values 3, 2, 4 and 6 into separate cells and then write a formula to perform this operation referring to the corresponding cells as follows:
-<img src="images/ExcelPWT15c.png" width="70%" height="70%" style="display: block; margin: auto;" />
-where “A2” is 3, “B2” is 2, “C2” is 4 and “D2” is 6.</p></li>
-<li><p><strong>Example 2</strong>: to calculate the average of the four numbers used in the previous example using the AVERAGE() function, select the cells comprising the range of values you want to include in the calculation:
-<img src="images/ExcelPWT15d.png" width="70%" height="70%" style="display: block; margin: auto;" /></p></li>
-</ul>
+<div id="extract-data-and-create-new-variables" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Extract data and create new variables<a href="large-language-models-llms-in-excel.html#extract-data-and-create-new-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Large language models can also be used to perform most of the tasks discussed in the previous sections.</p>
+<p><span style="color: blue;"><strong>Example: extracting data and create new variables</strong></span>:</p>
+<blockquote>
+<p><strong>Prompt (ChatGPT 4o)</strong>: (attaching pwt1001.xlsx) Using the PWT10.01 dataset attached, do the following tasks. 1) extract “year”, “rgdpo” and “pop” for entries where “country” is equal to “United Kingdom”. 2) create a new variables for UK GDP per capita using the variables extracted. 3) create a new Excel spreadsheet including the new variable, ready to be downloaded.</p>
+</blockquote>
+<p>ChatGPT 4 offers the following reply:</p>
+<ol style="list-style-type: decimal">
+<li>Python code used to extract the relevant data and create the new variable:</li>
+</ol>
+<p><img src="images/CGPT4o_UK1.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Output: new Excel spreadsheet</li>
+</ol>
+<p><img src="images/CGPT4o_UK.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<p>Opening the new spreadsheet:</p>
+<p><img src="images/CGPT4o_UK2.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<p><span style="color: blue;"><strong>Check</strong></span>:</p>
+<p>Compare the spreadsheet with that created in Section 1.1. Check that the first entry for UK GDP per capita is correct.</p>
 </div>
 </div>
             </section>
@@ -201,8 +209,8 @@ where “A2” is 3, “B2” is 2, “C2” is 4 and “D2” is 6.</p></li>
           </div>
         </div>
       </div>
-<a href="preparing-the-dataset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="creating-new-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="useful-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
