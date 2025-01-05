@@ -13,7 +13,9 @@ link-citations: yes
 
 # Introduction {-}
 
-Note that this resource is still a work in progress. You can write to me at: marion.prat@bristol.ac.uk.
+*This resource is still a work in progress. Any feedback is welcome.* 
+
+*You can write to me at: marion.prat@bristol.ac.uk.*
 
 In this tutorial, we will show how to extract useful empirical facts about long-run growth from the <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank"><span style="color: black;">**Penn World Table**</span></a> [@PWT] using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950). 
 
@@ -44,7 +46,7 @@ knitr::include_graphics(rep("images/ExcelPWT_data.png"))
 Each row corresponds to observations for a given country in a given year and each column represents a variable. Although this layout may appear confusing at first, it is in fact computer friendly: 
 
 - First, it is easy to use a *Power Query* in the *Data* tab (accessed via "Get Data") to create a new Excel sheet containing any subset of the data you are interested in analysing. This is what we are going to do in this tutorial.
-- Second, it is compatible with how statistical software (such as R) work as they store variables in column vectors. 
+- Second, it is compatible with how statistical software (such as R or Python) work as they store variables in column vectors. 
 
 
 # Preparing the dataset
@@ -265,7 +267,7 @@ knitr::include_graphics(rep("images/ExcelPWT15d.png"))
 
 # Creating new variables
 
-## Generating a new GDP per capita series
+## Generating new variables
 
 - Using the data on GDP and population for the United Kingdom in the "United Kingdom" sheet we can generate a series of values for UK GDP per capita. For this, we need to create a formula referring to values in other cells.
 
@@ -277,7 +279,7 @@ knitr::include_graphics(rep("images/ExcelPWT18.png"))
 
 ```
 
-- To calculate UK GDP per capita in all subsequent years, we need to apply the same formula to all rows ( representing years) in the dataset. 
+- To calculate UK GDP per capita in all subsequent years, we need to apply the same formula to all rows (representing years) in the dataset. 
 - To do this you can either copy and paste the formula in all subsequent cells in the D column or double click on the "+" in the bottom right corner of D2, or click on the "+" and drag it over all the subsequent cells in the D column (whatever works for you!). 
 
 ```{r ExcelPWT19, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
@@ -296,7 +298,7 @@ knitr::include_graphics(rep("images/ExcelPWT20.png"))
 
 ## Calculating growth rates
 
-Using the UK GDP per capita series, we can now create the series of annual growth rates of GDP per capita using the formula $g_y = \frac{y_t}{y_{t-1}} -1$. For example, the annual growth rate of UK GDP per capita in 1951 is equal to the ratio of GDP per capita in 1951 ("D3") and in 1950 ("D2") minus 1. 
+Using the UK GDP per capita series, we can now create the series of annual growth rates of GDP per capita using the discrete time formula $g_y = \frac{y_t}{y_{t-1}} -1$. For example, the annual growth rate of UK GDP per capita in 1951 is equal to the ratio of GDP per capita in 1951 ("D3") and in 1950 ("D2") minus 1. 
 
 ```{r ExcelPWT21, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
 
@@ -307,7 +309,7 @@ knitr::include_graphics(rep("images/ExcelPWT21.png"))
 Then copy the formula in all subsequent cells to generate the whole series of annual growth rates.
 
 
-## Generating a series for the logarithm of a variable
+## Using the natural logarithm function
 
 To calculate a series for the natural logarithm of UK GDP per capita, use the LN() function:
  
@@ -318,9 +320,26 @@ knitr::include_graphics(rep("images/ExcelPWT21b.png"))
 
 ```
 
-Then copy the formula in all subsequent cells to generate the whole series of annual growth rates. 
+Then copy the formula in all subsequent cells to generate the natural logarithm of GDP in all subsequent years. 
 *Important*: to calculate the natural logarithm, do not use the LOG() function, which should only be used if you want to calculate the logarithm with a different base!
 
+Using the natural logarithm function, we can calculate the annual growth rate using the continuous time formula: $g_y = ln(y_t) - ln(y_{t-1})$. For example, the annual growth rate of UK GDP per capita in 1951 is equal to the natural logarithm of GDP per capita in 1951 minus the natural logarithm of GDP per capita in 1950.
+
+```{r ExcelPWT21c, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT21c.png"))
+
+```
+
+Then copy the formula in all subsequent cells to generate the whole series of annual growth rates. Compare it with the growth rate calculated using the discrete time formula:
+
+```{r ExcelPWT21d, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
+
+knitr::include_graphics(rep("images/ExcelPWT21d.png"))
+
+```
+
+The two formulas yield similar (to 2 decimal points) but not perfectly identical estimates of the annual growth rates.  
 
 # Formatting numbers
 
@@ -330,7 +349,7 @@ knitr::include_graphics(rep("images/ExcelPWT22.png"))
 
 ```
 
-The data in the table above contains numbers with various decimal points and the GDP growth rate in column E is expressed in decimal points. It is possible to make the data more presentable by using the "Number" options in the top ribbon (first select the "Home" tab).
+The data in the table above contains numbers with various decimal points and the GDP growth rate in column E is expressed in fractional form. It is possible to make the data more presentable by using the "Number" options in the top ribbon (first select the "Home" tab).
 
 - To express the annual growth rate in % instead of decimal points, select column D and click on the "%" icon. 
 
@@ -340,13 +359,15 @@ knitr::include_graphics(rep("images/ExcelPWT23.png"))
 
 ```
 
-- The same number is now expressed in %. However, the growth rate have been rounded to the nearest integer value. It might be useful to to have a more precise number displayed. To increase the number of decimal points, click on the icon indicated by the red arrow below as many time as you want to add decimal points.
+- The same number is now expressed in %. However, the growth rate have been rounded to the nearest integer value. It might be useful to display a more precise number. To increase the number of decimal points, click on the  $\leftarrow.000$ icon indicated by the red arrow below as many time as you want to add decimal points.
 
 ```{r ExcelPWT25, echo=FALSE, out.width="75%", out.height="75%", fig.align='center'}
 
 knitr::include_graphics(rep("images/ExcelPWT25.png"))
 
 ```
+
+- To reduce the number of decimal points (for example for the "pop" variable), click on the $\rightarrow.000$ icon instead.
 
 - The variables "rgdpo" and "GDPPC" are large numbers expressed in millions of $, which may be easier to read by having a comma separate the 1000s. This can be done by selecting the columns on which you want to apply this change and clicking on the comma icon.
 
@@ -373,11 +394,7 @@ To create a plot of the logarithm of UK GDP, select the "year" and "lnGDPPC" col
 
 <video src="media/video1.mp4" width="700" height="540" controls></video>
 
-**Note**: you may be tempted to select fancy layouts using the "Quick Layout" tab. Although it may be helpful in some cases, it is more likely to add unnecessary detail and therefore be more confusing to read. Better to invest in learning the chart elements can be modified to serve the purpose of each individual graph.
-
-## Log scale
-
-TBA
+**Note**: you may be tempted to select fancy layouts using the "Quick Layout" tab. Although it may be helpful in some cases, it is more likely to add unnecessary detail and therefore be more confusing to read. Better to invest in learning how the chart elements can be modified to serve the purpose of each individual graph.
 
 ## Titles
 
@@ -399,6 +416,13 @@ Formatting axes properly may go a long way to produce a graph that is informativ
 - To format the vertical axis: right click on the vertical axis and select "Format axis". To modify the range of the vertical axis so that it better fits the range in the data, change the minimum or the maximum in the "Bounds" tab. To reduce/increase the number of ticks, change "Major" in the "Units tab. To reduce the number of decimal points, go to the "Number" option and specify your preferred number of decimal points (eg 1). 
 
 <video src="media/video3.mp4" width="700" height="540" controls></video>
+
+## Logarithimc (ratio) scale
+
+Instead of plotting the logarithm of GDP per capita, you may want to represent GDP per capita on a ratio scale. Here is how the "Format axis" panel can be used to plot the logarithm base 2 of GDP per capita, so that each tick mark represents a doubling of GDP per capita.
+
+<video src="media/video10.mp4" width="700" height="540" controls></video>
+
 
 ## Add trend lines
 
@@ -440,16 +464,18 @@ The table is now ready to be exported into a Word document.
 
 <video src="media/video9.mp4" width="700" height="540" controls></video>
 
-# Large language models in Excel
+# Excel and Large language models
 
-Many AI tools, among which large language models (LLMs) feature prominently, are embedded into Excel. We have already used some of these features in previous chapters:
+Many AI tools are already embedded into Excel. We have already used some of these features in previous chapters:
 
 - When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes ("Formula by Example"). 
-- When creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in "Recommended charts".
+- When creating a chart, Excel proposes a selection of charts likely to be relevant in "Recommended charts".
 
-With the incorporation of Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase.
+With the incorporation of Large Language Models (LLMs) such as Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase. In this section, we explore what these new capabilities may look like. It is strongly recommended that you perform all calculations using Excel or other programming software rather than ask an LLM to generate output for you.   
 
-## Write an Excel formula
+*All output in this section have been generated using ChatGPT4. You may not be able to replicate this output using Copilot as it can only accept files of size up to 1MB.*
+
+## Find an Excel formula
 
 If you do not know how to write a formula in Excel, you may ask a LLM to suggest a formula.
 
@@ -468,12 +494,12 @@ knitr::include_graphics(rep("images/CGPT4_CAGR.png"))
 
 <span style="color: blue;">**Check**</span>: 
 
-- Is the formula correct (check whether the reasoning is correct)? 
+- Is the formula correct? 
 - Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita? 
 - Be careful that the GPT may be "hallucinating" an Excel function.
 
 
-## Extract data and create new variables  
+## Perform operations on data  
 
 Large language models can also be used to perform most of the tasks discussed in the previous sections. 
 
@@ -481,15 +507,9 @@ Large language models can also be used to perform most of the tasks discussed in
 
 > **Prompt (ChatGPT 4o)**: (attaching pwt1001.xlsx) Using the PWT10.01 dataset attached, do the following tasks. 1) extract "year", "rgdpo" and "pop" for entries where "country" is equal to "United Kingdom". 2) create a new variables for UK GDP per capita using the variables extracted. 3) create a new Excel spreadsheet including the new variable, ready to be downloaded.
 
-ChatGPT 4 offers the following reply:
+ChatGPT 4 generates:
 
-1. Python code used to extract the relevant data and create the new variable:
-
-```{r CGPT4o_UK1, echo=FALSE, out.width="85%", out.height="85%", fig.align='center'}
-
-knitr::include_graphics(rep("images/CGPT4o_UK1.png"))
-
-```
+1. Python code used to extract the relevant data and create the new variable.
 
 2. Output: new Excel spreadsheet
 

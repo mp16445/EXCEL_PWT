@@ -23,7 +23,7 @@
 <meta name="author" content="Marion Prat" />
 
 
-<meta name="date" content="2024-06-10" />
+<meta name="date" content="2025-01-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,17 +114,17 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3" data-path="creating-new-variables.html"><a href="creating-new-variables.html"><i class="fa fa-check"></i><b>3</b> Creating new variables</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="creating-new-variables.html"><a href="creating-new-variables.html#generating-a-new-gdp-per-capita-series"><i class="fa fa-check"></i><b>3.1</b> Generating a new GDP per capita series</a></li>
+<li class="chapter" data-level="3.1" data-path="creating-new-variables.html"><a href="creating-new-variables.html#generating-new-variables"><i class="fa fa-check"></i><b>3.1</b> Generating new variables</a></li>
 <li class="chapter" data-level="3.2" data-path="creating-new-variables.html"><a href="creating-new-variables.html#calculating-growth-rates"><i class="fa fa-check"></i><b>3.2</b> Calculating growth rates</a></li>
-<li class="chapter" data-level="3.3" data-path="creating-new-variables.html"><a href="creating-new-variables.html#generating-a-series-for-the-logarithm-of-a-variable"><i class="fa fa-check"></i><b>3.3</b> Generating a series for the logarithm of a variable</a></li>
+<li class="chapter" data-level="3.3" data-path="creating-new-variables.html"><a href="creating-new-variables.html#using-the-natural-logarithm-function"><i class="fa fa-check"></i><b>3.3</b> Using the natural logarithm function</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="formatting-numbers.html"><a href="formatting-numbers.html"><i class="fa fa-check"></i><b>4</b> Formatting numbers</a></li>
 <li class="chapter" data-level="5" data-path="create-plots.html"><a href="create-plots.html"><i class="fa fa-check"></i><b>5</b> Create plots</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="create-plots.html"><a href="create-plots.html#create-a-line-chart"><i class="fa fa-check"></i><b>5.1</b> Create a line chart</a></li>
-<li class="chapter" data-level="5.2" data-path="create-plots.html"><a href="create-plots.html#log-scale"><i class="fa fa-check"></i><b>5.2</b> Log scale</a></li>
-<li class="chapter" data-level="5.3" data-path="create-plots.html"><a href="create-plots.html#titles"><i class="fa fa-check"></i><b>5.3</b> Titles</a></li>
-<li class="chapter" data-level="5.4" data-path="create-plots.html"><a href="create-plots.html#format-axes"><i class="fa fa-check"></i><b>5.4</b> Format axes</a></li>
+<li class="chapter" data-level="5.2" data-path="create-plots.html"><a href="create-plots.html#titles"><i class="fa fa-check"></i><b>5.2</b> Titles</a></li>
+<li class="chapter" data-level="5.3" data-path="create-plots.html"><a href="create-plots.html#format-axes"><i class="fa fa-check"></i><b>5.3</b> Format axes</a></li>
+<li class="chapter" data-level="5.4" data-path="create-plots.html"><a href="create-plots.html#logarithimc-ratio-scale"><i class="fa fa-check"></i><b>5.4</b> Logarithimc (ratio) scale</a></li>
 <li class="chapter" data-level="5.5" data-path="create-plots.html"><a href="create-plots.html#add-trend-lines"><i class="fa fa-check"></i><b>5.5</b> Add trend lines</a></li>
 <li class="chapter" data-level="5.6" data-path="create-plots.html"><a href="create-plots.html#format-chart-area"><i class="fa fa-check"></i><b>5.6</b> Format chart area</a></li>
 <li class="chapter" data-level="5.7" data-path="create-plots.html"><a href="create-plots.html#export-plot-to-word-document"><i class="fa fa-check"></i><b>5.7</b> Export plot to Word document</a></li>
@@ -163,12 +163,13 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="large-language-models-in-excel" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Large language models in Excel<a href="large-language-models-in-excel.html#large-language-models-in-excel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Many AI tools, among which large language models (LLMs) feature prominently, are embedded into Excel. We have already used some of these features in previous chapters:</p>
+<p>Many AI tools are already embedded into Excel. We have already used some of these features in previous chapters:</p>
 <ul>
 <li>When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes (“Formula by Example”).</li>
-<li>When creating a chart, Excel proposes a selection of charts that are the most likely to be relevant in “Recommended charts”.</li>
+<li>When creating a chart, Excel proposes a selection of charts likely to be relevant in “Recommended charts”.</li>
 </ul>
-<p>With the incorporation of Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase.</p>
+<p>With the incorporation of Large Language Models (LLMS) such as Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase.</p>
+<p><em>All output in this section have been generated using ChatGPT4. You may not be able to replicate this output using Copilot as it can only accept files of size up to 1MB.</em></p>
 <div id="write-an-excel-formula" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Write an Excel formula<a href="large-language-models-in-excel.html#write-an-excel-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you do not know how to write a formula in Excel, you may ask a LLM to suggest a formula.</p>
@@ -181,7 +182,7 @@ I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet.
 <p><img src="images/CGPT4_CAGR.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
 <p><span style="color: blue;"><strong>Check</strong></span>:</p>
 <ul>
-<li>Is the formula correct (check whether the reasoning is correct)?</li>
+<li>Is the formula correct?</li>
 <li>Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita?</li>
 <li>Be careful that the GPT may be “hallucinating” an Excel function.</li>
 </ul>
@@ -195,11 +196,8 @@ I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet.
 </blockquote>
 <p>ChatGPT 4 offers the following reply:</p>
 <ol style="list-style-type: decimal">
-<li>Python code used to extract the relevant data and create the new variable:</li>
-</ol>
-<p><img src="images/CGPT4o_UK1.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Output: new Excel spreadsheet</li>
+<li><p>Python code used to extract the relevant data and create the new variable:</p></li>
+<li><p>Output: new Excel spreadsheet</p></li>
 </ol>
 <p><img src="images/CGPT4o_UK.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
 <p>Opening the new spreadsheet:</p>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The Penn World Table in Excel</title>
-  <meta name="description" content="The Penn World Table in Excel" />
+  <title>Chapter 7 Excel and Large language models | The Penn World Table in Excel</title>
+  <meta name="description" content="Chapter 7 Excel and Large language models | The Penn World Table in Excel" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The Penn World Table in Excel" />
+  <meta property="og:title" content="Chapter 7 Excel and Large language models | The Penn World Table in Excel" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Penn World Table in Excel" />
+  <meta name="twitter:title" content="Chapter 7 Excel and Large language models | The Penn World Table in Excel" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="preparing-the-dataset.html"/>
+<link rel="prev" href="tables.html"/>
+<link rel="next" href="useful-resources.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -161,32 +161,52 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The Penn World Table in Excel</h1>
-<p class="author"><em>Marion Prat</em></p>
-<p class="date"><em>2025-01-05</em></p>
-</div>
-<div id="introduction" class="section level1 unnumbered hasAnchor">
-<h1>Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em>This resource is still a work in progress. Any feedback is welcome.</em></p>
-<p><em>You can write to me at: <a href="mailto:marion.prat@bristol.ac.uk" class="email">marion.prat@bristol.ac.uk</a>.</em></p>
-<p>In this tutorial, we will show how to extract useful empirical facts about long-run growth from the <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank"><span style="color: black;"><strong>Penn World Table</strong></span></a> <span class="citation">(<a href="#ref-PWT">Feenstra, Inklaar, and P.Timmer 2015</a>)</span> using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950).</p>
-<p><strong>Download</strong> the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;"><strong>here</strong></span></a> and <strong>save</strong> it in a folder entitled PWT. The spreadsheet contains three sheets: “Info”, “Legend” and “Data”.</p>
-<p><img src="images/ExcelPWT.png" width="958" /></p>
-<p>Before going any further, check the definition of the variables in the “Legend” sheet. Why are there so many different measures of real GDP? How do they differ?</p>
-<p><img src="images/ExcelPWT_legend.png" width="958" /></p>
-<p>The “Data” sheet contains the dataset.</p>
-<p><img src="images/ExcelPWT_data.png" width="960" /></p>
-<p>Each row corresponds to observations for a given country in a given year and each column represents a variable. Although this layout may appear confusing at first, it is in fact computer friendly:</p>
+<div id="excel-and-large-language-models" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Excel and Large language models<a href="excel-and-large-language-models.html#excel-and-large-language-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Many AI tools are already embedded into Excel. We have already used some of these features in previous chapters:</p>
 <ul>
-<li>First, it is easy to use a <em>Power Query</em> in the <em>Data</em> tab (accessed via “Get Data”) to create a new Excel sheet containing any subset of the data you are interested in analysing. This is what we are going to do in this tutorial.</li>
-<li>Second, it is compatible with how statistical software (such as R or Python) work as they store variables in column vectors.</li>
+<li>When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes (“Formula by Example”).</li>
+<li>When creating a chart, Excel proposes a selection of charts likely to be relevant in “Recommended charts”.</li>
+</ul>
+<p>With the incorporation of Large Language Models (LLMs) such as Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase. In this section, we explore what these new capabilities may look like. It is strongly recommended that you perform all calculations using Excel or other programming software rather than ask an LLM to generate output for you.</p>
+<p><em>All output in this section have been generated using ChatGPT4. You may not be able to replicate this output using Copilot as it can only accept files of size up to 1MB.</em></p>
+<div id="find-an-excel-formula" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Find an Excel formula<a href="excel-and-large-language-models.html#find-an-excel-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you do not know how to write a formula in Excel, you may ask a LLM to suggest a formula.</p>
+<p><span style="color: blue;"><strong>Example: formula for the compound annual growth rate</strong></span>:</p>
+<blockquote>
+<p><strong>Prompt (ChatGPT 4)</strong>:
+I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet. Write an Excel formula I can use to calculate the compounded annual growth rate of GDP between 1950 and 2019. Explain carefully the formula.</p>
+</blockquote>
+<p>ChatGPT 4 offers the following reply:</p>
+<p><img src="images/CGPT4_CAGR.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<p><span style="color: blue;"><strong>Check</strong></span>:</p>
+<ul>
+<li>Is the formula correct?</li>
+<li>Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita?</li>
+<li>Be careful that the GPT may be “hallucinating” an Excel function.</li>
 </ul>
 </div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-PWT" class="csl-entry">
-Feenstra, Robert C., Robert Inklaar, and Marcel P.Timmer. 2015. <span>“The Next Generation of the Penn World Table.”</span> <em>American Economic Review</em> 105 (10): 3150–82.
+<div id="perform-operations-on-data" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Perform operations on data<a href="excel-and-large-language-models.html#perform-operations-on-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Large language models can also be used to perform most of the tasks discussed in the previous sections.</p>
+<p><span style="color: blue;"><strong>Example: Extract UK data and create GDP per capita</strong></span>:</p>
+<blockquote>
+<p><strong>Prompt (ChatGPT 4o)</strong>: (attaching pwt1001.xlsx) Using the PWT10.01 dataset attached, do the following tasks. 1) extract “year”, “rgdpo” and “pop” for entries where “country” is equal to “United Kingdom”. 2) create a new variables for UK GDP per capita using the variables extracted. 3) create a new Excel spreadsheet including the new variable, ready to be downloaded.</p>
+</blockquote>
+<p>ChatGPT 4 generates:</p>
+<ol style="list-style-type: decimal">
+<li><p>Python code used to extract the relevant data and create the new variable.</p></li>
+<li><p>Output: new Excel spreadsheet</p></li>
+</ol>
+<p><img src="images/CGPT4o_UK.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<p>Opening the new spreadsheet:</p>
+<p><img src="images/CGPT4o_UK2.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<p><span style="color: blue;"><strong>Check</strong></span>:</p>
+<ul>
+<li>Compare this spreadsheet with that created in Section 1.1.</li>
+<li>Check that the first entry for UK GDP per capita is correct.</li>
+</ul>
 </div>
 </div>
             </section>
@@ -194,8 +214,8 @@ Feenstra, Robert C., Robert Inklaar, and Marcel P.Timmer. 2015. <span>“The Nex
           </div>
         </div>
       </div>
-
-<a href="preparing-the-dataset.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="useful-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
