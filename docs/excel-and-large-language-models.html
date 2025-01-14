@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Excel and Large language models | The Penn World Table in Excel</title>
-  <meta name="description" content="Chapter 7 Excel and Large language models | The Penn World Table in Excel" />
+  <title>Chapter 8 Excel and Large language models | The Penn World Table in Excel</title>
+  <meta name="description" content="Chapter 8 Excel and Large language models | The Penn World Table in Excel" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Excel and Large language models | The Penn World Table in Excel" />
+  <meta property="og:title" content="Chapter 8 Excel and Large language models | The Penn World Table in Excel" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Excel and Large language models | The Penn World Table in Excel" />
+  <meta name="twitter:title" content="Chapter 8 Excel and Large language models | The Penn World Table in Excel" />
   
   
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Marion Prat" />
 
 
-<meta name="date" content="2025-01-05" />
+<meta name="date" content="2025-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tables.html"/>
+<link rel="prev" href="growth-accounting.html"/>
 <link rel="next" href="useful-resources.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -135,10 +135,17 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="tables.html"><a href="tables.html#formatting-tables-in-excel"><i class="fa fa-check"></i><b>6.2</b> Formatting tables in Excel</a></li>
 <li class="chapter" data-level="6.3" data-path="tables.html"><a href="tables.html#export-an-excel-table-to-a-word-document"><i class="fa fa-check"></i><b>6.3</b> Export an Excel table to a Word document</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html"><i class="fa fa-check"></i><b>7</b> Excel and Large language models</a>
+<li class="chapter" data-level="7" data-path="growth-accounting.html"><a href="growth-accounting.html"><i class="fa fa-check"></i><b>7</b> Growth accounting</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#find-an-excel-formula"><i class="fa fa-check"></i><b>7.1</b> Find an Excel formula</a></li>
-<li class="chapter" data-level="7.2" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#perform-operations-on-data"><i class="fa fa-check"></i><b>7.2</b> Perform operations on data</a></li>
+<li class="chapter" data-level="7.1" data-path="growth-accounting.html"><a href="growth-accounting.html#growth-accounting-equation"><i class="fa fa-check"></i><b>7.1</b> Growth accounting equation</a></li>
+<li class="chapter" data-level="7.2" data-path="growth-accounting.html"><a href="growth-accounting.html#variable-selection-and-transformation"><i class="fa fa-check"></i><b>7.2</b> Variable selection and transformation</a></li>
+<li class="chapter" data-level="7.3" data-path="growth-accounting.html"><a href="growth-accounting.html#results-annual-decompositions"><i class="fa fa-check"></i><b>7.3</b> Results: annual decompositions</a></li>
+<li class="chapter" data-level="7.4" data-path="growth-accounting.html"><a href="growth-accounting.html#results-average-decompositions"><i class="fa fa-check"></i><b>7.4</b> Results: average decompositions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html"><i class="fa fa-check"></i><b>8</b> Excel and Large language models</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#find-an-excel-formula"><i class="fa fa-check"></i><b>8.1</b> Find an Excel formula</a></li>
+<li class="chapter" data-level="8.2" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#perform-operations-on-data"><i class="fa fa-check"></i><b>8.2</b> Perform operations on data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -161,8 +168,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="excel-and-large-language-models" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Excel and Large language models<a href="excel-and-large-language-models.html#excel-and-large-language-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="excel-and-large-language-models" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Excel and Large language models<a href="excel-and-large-language-models.html#excel-and-large-language-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Many AI tools are already embedded into Excel. We have already used some of these features in previous chapters:</p>
 <ul>
 <li>When you create a new variable in a new column using a formula, Excel will use it as an example to write the formula in all subsequent rows in the same column and automatically update as the data changes (“Formula by Example”).</li>
@@ -170,8 +177,8 @@ div.csl-indent {
 </ul>
 <p>With the incorporation of Large Language Models (LLMs) such as Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase. In this section, we explore what these new capabilities may look like. It is strongly recommended that you perform all calculations using Excel or other programming software rather than ask an LLM to generate output for you.</p>
 <p><em>All output in this section have been generated using ChatGPT4. You may not be able to replicate this output using Copilot as it can only accept files of size up to 1MB.</em></p>
-<div id="find-an-excel-formula" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Find an Excel formula<a href="excel-and-large-language-models.html#find-an-excel-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="find-an-excel-formula" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Find an Excel formula<a href="excel-and-large-language-models.html#find-an-excel-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you do not know how to write a formula in Excel, you may ask a LLM to suggest a formula.</p>
 <p><span style="color: blue;"><strong>Example: formula for the compound annual growth rate</strong></span>:</p>
 <blockquote>
@@ -187,8 +194,8 @@ I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet.
 <li>Be careful that the GPT may be “hallucinating” an Excel function.</li>
 </ul>
 </div>
-<div id="perform-operations-on-data" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> Perform operations on data<a href="excel-and-large-language-models.html#perform-operations-on-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="perform-operations-on-data" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Perform operations on data<a href="excel-and-large-language-models.html#perform-operations-on-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Large language models can also be used to perform most of the tasks discussed in the previous sections.</p>
 <p><span style="color: blue;"><strong>Example: Extract UK data and create GDP per capita</strong></span>:</p>
 <blockquote>
@@ -214,7 +221,7 @@ I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet.
           </div>
         </div>
       </div>
-<a href="tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="growth-accounting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="useful-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

@@ -392,7 +392,9 @@ knitr::include_graphics(rep("images/ExcelPWT29.png"))
 
 To create a plot of the logarithm of UK GDP, select the "year" and "lnGDPPC" column, go to "Insert" and click on "Recommended charts". Select the plot which has "year" on x-axis and "lnGDPPC" on the y-axis among the options proposed. 
 
-<video src="media/video1.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video1.mp4" width="700" height="540" controls></video>
+</div>
 
 **Note**: you may be tempted to select fancy layouts using the "Quick Layout" tab. Although it may be helpful in some cases, it is more likely to add unnecessary detail and therefore be more confusing to read. Better to invest in learning how the chart elements can be modified to serve the purpose of each individual graph.
 
@@ -403,8 +405,9 @@ To add or remove a char title, click on the chart and go to "Chart Design", then
 - Select "Chart title" to add or remove a plot title.  
 - Select "Axis Titles" to add titles to the horizontal and vertical axis.
 
-<video src="media/video2.mp4" width="700" height="540" controls></video>
-
+<div style="text-align: center;">
+ <video src="media/video2.mp4" width="700" height="540" controls></video>
+</div>
 
 **Note**: depending on the plot, adding titles may not add much information. For example, in the case of the plot of the logarithm of UK GDP per capita, adding axis titles do not add much information as it is clear already that the horizontal axis represents dates and the plot title already explains what it represents. In other cases, it may be impossible to understand what is represented without axis titles. 
 
@@ -415,30 +418,41 @@ Formatting axes properly may go a long way to produce a graph that is informativ
 - To format the horizontal axis: right click on the dates on the chart and select "Format axis". To have the dates displayed only every 10 years, use the "Label" option.
 - To format the vertical axis: right click on the vertical axis and select "Format axis". To modify the range of the vertical axis so that it better fits the range in the data, change the minimum or the maximum in the "Bounds" tab. To reduce/increase the number of ticks, change "Major" in the "Units tab. To reduce the number of decimal points, go to the "Number" option and specify your preferred number of decimal points (eg 1). 
 
-<video src="media/video3.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video3.mp4" width="700" height="540" controls></video>
+</div>
 
 ## Logarithimc (ratio) scale
 
 Instead of plotting the logarithm of GDP per capita, you may want to represent GDP per capita on a ratio scale. Here is how the "Format axis" panel can be used to plot the logarithm base 2 of GDP per capita, so that each tick mark represents a doubling of GDP per capita.
 
-<video src="media/video10.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video10.mp4" width="700" height="540" controls></video>
+</div>
 
 
 ## Add trend lines
 
 To add a trend line, click on the chart and go to "Chart Design" and "Add Chart Element". Then go to "Trendline" and select the shape of trend line that is the most relevant for your plot (here a linear trend because we plot the logarithm of GDP). 
 
-<video src="media/video4.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video4.mp4" width="700" height="540" controls></video>
+</div>
 
 ## Format chart area
 
 Finally, altering the appearance of the line plot may improve the clarity of the graph. You may alter the thickness, the colour and the pattern of the line plot. To do so click on the line you wish to apply these changes to and select your preferred options. 
 
-<video src="media/video5.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video5.mp4" width="700" height="540" controls></video>
+</div>
+
 
 ## Export plot to Word document
 
-<video src="media/video6.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video6.mp4" width="700" height="540" controls></video>
+</div>
 
 **Note**: if you do not paste the plot as a picture in the Word document, it is the entire Excel sheet that you are including into your Word document. Pasting the document as a picture (as in the video) may be more efficient.
 
@@ -448,21 +462,165 @@ We now want to calculate the trend growth rate of UK GDP per capita between 1950
 
 ## Calculate compound growth rates in Excel
 
-To calculate the trend growth rate we use the compound growth rate formula: $g = \left(\frac{y_{end}}{y_{start}}\right)^{\frac{1}{end-start}}-1$ (multiplied by 100 to express the growth rate in %)
+To calculate the compound average growth rate between time $t$ and time $s$, we use the compound growth rate formula: $g_{y,t-s} = \left(\frac{y_{s}}{y_{t}}\right)^{\frac{1}{s-t}}-1$ (multiplied by 100 to express the growth rate in %).
 
-<video src="media/video7.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video7.mp4" width="700" height="540" controls></video>
+</div>
+
+*Alternatively you may use the formula using the logarithmic approximation to calculate compound annual growth rates: $g_{y,t-s} = \frac{1}{s-t}(\ln{y_s}-\ln{y_t})$ (multiplied by 100 to express the growth rate in %).* 
 
 ## Formatting tables in Excel
 
 In this video, it is shown how to wrap text within a cell, how to center numbers (or text) within a cell, how to alter the background colour of the cells and how to add borders. 
 
-<video src="media/video8.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video8.mp4" width="700" height="540" controls></video>
+</div>
 
 The table is now ready to be exported into a Word document.
 
 ## Export an Excel table to a Word document
 
-<video src="media/video9.mp4" width="700" height="540" controls></video>
+<div style="text-align: center;">
+ <video src="media/video9.mp4" width="700" height="540" controls></video>
+</div>
+
+# Growth accounting
+
+This section will guide you through the construction of an Excel spreadsheet and the calculation of the growth accounting decomposition of UK GDP ($Y$). 
+
+## Growth accounting equation
+
+**Cobb-Douglas production function**:
+$$Y_t = A_tK_t^\beta L_t^{1-\beta}$$
+where 
+
+- $Y$ is total output
+- $A$ is total factor productivity 
+- $K$ is the capital stock 
+- $L$ is the number of hours worked
+- $\beta$ is the elasticity of output with respect to capital (elasticity of capital).
+
+**Growth accounting equation**:
+$$g_Y = g_A + \beta g_K + (1-\beta)g_L  $$
+where
+
+- We will assume an elasticity of output with respect to capital equal to 0.3 (unless otherwise stated).
+- We will estimate $g_Y$, $g_K$ and $g_L$ using the following data in the *Penn World Tables*.
+
+```{r GA_data_def, echo=FALSE, fig.align='center', out.width="75%", out.height="75%"}
+
+knitr::include_graphics(rep("images/GA_data_def.png"))
+
+```
+
+- $g_A$ is not directly observable but can be estimated as the residual of the growth accounting equation:
+  $$g_A = g_Y - \beta g_K - (1-\beta)g_L $$
+  *Note that the PWT database does contain an estimated series of TFP (denoted "ctfp" and "rtfpna"), but we will ignore them for the purpose of this exercise, which is to understand how such a series can be constructed using National Accounts data.*
+
+## Variable selection and transformation
+
+- Extract the relevant variables in a new sheet:
+
+```{r UK_GA_data, echo=FALSE, fig.align='center'}
+
+knitr::include_graphics(rep("images/UK_GA.png"))
+
+```
+
+- **Construct the total number of hours worked ("hours")** by multiplying the number of persons engaged (in millions) ("emp") by the average number of hours worked per persons engaged ("avh"). This will be the labour input variable ("L"). 
+
+```{r UK_GA_data_L, echo=FALSE, fig.align='center', out.width="80%", out.height="80%"}
+
+knitr::include_graphics(rep("images/UK_GA_L.png"))
+
+```
+
+
+## Results: annual decompositions
+
+In this section, we will construct the growth rate of total factor productivity, $g_A$, decompose the growth rate of GDP, $g_Y$, into the contribution of capital accumulation, $\beta g_K$, the contribution of hours worked, $(1-\beta)g_L$, and the contribution of TFP growth, $g_A$, and show how to present the results effectively.
+
+- **Calculate the annual growth rate of output, the capital stock and hours worked** using the formula for the growth rate of variable $x$: $g_{x,t} = \frac{x_t}{x_{t-1}} - 1$ (*see* section 3.2 for how to calculate growth rates). 
+
+```{r UK_GA_annual_growth_rates, echo=FALSE, fig.align='center', out.width="80%", out.height="80%"}
+
+knitr::include_graphics(rep("images/UK_GA_agr.png"))
+
+```
+
+*Alternatively you may use the formula using the logarithmic approximation to calculate growth rates (see Section 3.3.).* 
+
+- **Calculate the TFP growth rate** ($g_A$) as the residual of the growth accounting equation: 
+$$g_A = g_Y - 0.3g_K - 0.7g_L$$
+```{r UK_GA_annual_ga, echo=FALSE, fig.align='center', out.width="80%", out.height="80%"}
+
+knitr::include_graphics(rep("images/UK_GA_aga.png"))
+
+```
+
+- **Calculate the contribution of each factor to the growth of output**:
+  - capital accumulation: $\beta g_K = 0.3g_K$ 
+  - hours worked: $(1-\beta)g_L = 0.7g_L$
+
+```{r UK_GA_annual_decomp, echo=FALSE, fig.align='center', out.width="80%", out.height="80%"}
+
+knitr::include_graphics(rep("images/UK_GA_a_decomp.png"))
+
+```
+
+- **Plot the results** (*see* Section 5 for how to create and format a line plot)
+
+```{r UK_GA_Y_decomp_plot, echo=FALSE, fig.align='center', out.width="80%", out.height="80%"}
+
+knitr::include_graphics(rep("images/UK_GA_Y_decomp_plot.png"))
+
+```
+
+## Results: average decompositions
+
+Sometimes, it will be informative to decompose the average growth rates of output over long periods of time (decades), removing the effects of short-run fluctuations and allowing the analysis to focus on long-run trends. 
+
+- **Identify meaningful subperiods** either using a plot of the natural logarithm to identify turning points in the growth experience of a country or based on significant country specific events (eg the fall of the Berlin wall and the reunification in Germany in 1990) or based on significant world events (eg the slowdown in productivity growth in developed economies in the early 1970s). In this example, we will decompose the growth of UK output over the full sample period (1950-2019) and over 3 subperiods (1950-1973, 1973-2007, 2007-2019).
+
+- **Select the data by hiding the irrelevant rows**:
+
+```{r UK_GA_Y_decomp_full_period, echo=FALSE, fig.align='center'}
+
+knitr::include_graphics(rep("images/UK_GA_Y_decomp_full_data.png"))
+
+```
+
+- **Calculate the average growth rate of output, capital and labour over the full sample period and each subperiod** using the formula for the compound average growth rate of variable $x$: $g_{x,t-s} = \left(\frac{x_s}{x_{t}}\right)^{\frac{1}{s-t}} - 1$ or its logarithmic approximation (*see* section 6.1 for how to calculate compound annual growth rates).
+
+```{r UK_GA_Y_decomp_full_growth_rates, echo=FALSE, fig.align='center', out.width="80%", out.height="80%"}
+
+knitr::include_graphics(rep("images/UK_GA_Y_decomp_full_growth_rates.png"))
+
+```
+
+- **Calculate average growth rates of TFP and the contributions of capital and labour to the growth of output** using the growth accounting equation. 
+
+```{r UK_GA_Y_decomp_full_table, echo=FALSE, fig.align='center', out.width="80%", out.height="80%"}
+
+knitr::include_graphics(rep("images/UK_GA_Y_decomp_full_table.png"))
+
+```
+
+- **Present the results** in a table, a column chart or any other chart you find useful to convey the information. 
+
+```{r UK_GA_Y_decomp_full_results, echo=FALSE, fig.align='center', out.width="80%", out.height="80%"}
+
+knitr::include_graphics(rep("images/UK_GA_Y_decomp_full_results.png"))
+
+```
+
+- *To produce the column chart*:
+
+<div style="text-align: center;">
+  <video src="media/video11.mp4" width="700" height="540" controls></video>
+</div>
 
 # Excel and Large language models
 

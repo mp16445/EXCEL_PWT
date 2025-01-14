@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Useful resources | The Penn World Table in Excel</title>
-  <meta name="description" content="Useful resources | The Penn World Table in Excel" />
+  <title>Chapter 7 Growth accounting | The Penn World Table in Excel</title>
+  <meta name="description" content="Chapter 7 Growth accounting | The Penn World Table in Excel" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Useful resources | The Penn World Table in Excel" />
+  <meta property="og:title" content="Chapter 7 Growth accounting | The Penn World Table in Excel" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Useful resources | The Penn World Table in Excel" />
+  <meta name="twitter:title" content="Chapter 7 Growth accounting | The Penn World Table in Excel" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="excel-and-large-language-models.html"/>
-
+<link rel="prev" href="tables.html"/>
+<link rel="next" href="excel-and-large-language-models.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -168,14 +168,95 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="useful-resources" class="section level1 unnumbered hasAnchor">
-<h1>Useful resources<a href="useful-resources.html#useful-resources" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Microsoft support: <a href="https://support.microsoft.com/en-us/office/excel-video-training-9bc05390-e94c-46af-a5b3-d7c22f6990bb" target="_blank">Excel video training website</a></p>
-<p>Microsoft Excel 365 Bible. Ebook 2022 available via the University library website. <a href="https://bris.on.worldcat.org/oclc/1298513173" target="_blank">Link</a></p>
-
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Feenstra, Robert C., Robert Inklaar, and Marcel P.Timmer. 2015. <span>“The Next Generation of the Penn World Table.”</span> <em>American Economic Review</em> 105 (10): 3150–82.
+<div id="growth-accounting" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Growth accounting<a href="growth-accounting.html#growth-accounting" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This section will guide you through the construction of an Excel spreadsheet and the calculation of the growth accounting decomposition of UK GDP (<span class="math inline">\(Y\)</span>).</p>
+<div id="growth-accounting-equation" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Growth accounting equation<a href="growth-accounting.html#growth-accounting-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Cobb-Douglas production function</strong>:
+<span class="math display">\[Y_t = A_tK_t^\beta L_t^{1-\beta}\]</span>
+where</p>
+<ul>
+<li><span class="math inline">\(Y\)</span> is total output</li>
+<li><span class="math inline">\(A\)</span> is total factor productivity</li>
+<li><span class="math inline">\(K\)</span> is the capital stock</li>
+<li><span class="math inline">\(L\)</span> is the number of hours worked</li>
+<li><span class="math inline">\(\beta\)</span> is the elasticity of output with respect to capital (elasticity of capital).</li>
+</ul>
+<p><strong>Growth accounting equation</strong>:
+<span class="math display">\[g_Y = g_A + \beta g_K + (1-\beta)g_L  \]</span>
+where</p>
+<ul>
+<li>We will assume an elasticity of output with respect to capital equal to 0.3 (unless otherwise stated).</li>
+<li>We will estimate <span class="math inline">\(g_Y\)</span>, <span class="math inline">\(g_K\)</span> and <span class="math inline">\(g_L\)</span> using the following data in the <em>Penn World Tables</em>.</li>
+</ul>
+<p><img src="images/GA_data_def.png" width="75%" height="75%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><span class="math inline">\(g_A\)</span> is not directly observable but can be estimated as the residual of the growth accounting equation:
+<span class="math display">\[g_A = g_Y - \beta g_K - (1-\beta)g_L \]</span>
+<em>Note that the PWT database does contain an estimated series of TFP (denoted “ctfp” and “rtfpna”), but we will ignore them for the purpose of this exercise, which is to understand how such a series can be constructed using National Accounts data.</em></li>
+</ul>
+</div>
+<div id="variable-selection-and-transformation" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Variable selection and transformation<a href="growth-accounting.html#variable-selection-and-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Extract the relevant variables in a new sheet:</li>
+</ul>
+<p><img src="images/UK_GA.png" width="624" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Construct the total number of hours worked (“hours”)</strong> by multiplying the number of persons engaged (in millions) (“emp”) by the average number of hours worked per persons engaged (“avh”). This will be the labour input variable (“L”).</li>
+</ul>
+<p><img src="images/UK_GA_L.png" width="80%" height="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="results-annual-decompositions" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Results: annual decompositions<a href="growth-accounting.html#results-annual-decompositions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section, we will construct the growth rate of total factor productivity, <span class="math inline">\(g_A\)</span>, decompose the growth rate of GDP, <span class="math inline">\(g_Y\)</span>, into the contribution of capital accumulation, <span class="math inline">\(\beta g_K\)</span>, the contribution of hours worked, <span class="math inline">\((1-\beta)g_L\)</span>, and the contribution of TFP growth, <span class="math inline">\(g_A\)</span>, and show how to present the results effectively.</p>
+<ul>
+<li><strong>Calculate the annual growth rate of output, the capital stock and hours worked</strong> using the formula for the growth rate of variable <span class="math inline">\(x\)</span>: <span class="math inline">\(g_{x,t} = \frac{x_t}{x_{t-1}} - 1\)</span> (<em>see</em> section 3.2 for how to calculate growth rates).</li>
+</ul>
+<p><img src="images/UK_GA_agr.png" width="80%" height="80%" style="display: block; margin: auto;" /></p>
+<p><em>Alternatively you may use the formula using the logarithmic approximation to calculate growth rates (see Section 3.3.).</em></p>
+<ul>
+<li><p><strong>Calculate the TFP growth rate</strong> (<span class="math inline">\(g_A\)</span>) as the residual of the growth accounting equation:
+<span class="math display">\[g_A = g_Y - 0.3g_K - 0.7g_L\]</span>
+<img src="images/UK_GA_aga.png" width="80%" height="80%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Calculate the contribution of each factor to the growth of output</strong>:</p>
+<ul>
+<li>capital accumulation: <span class="math inline">\(\beta g_K = 0.3g_K\)</span></li>
+<li>hours worked: <span class="math inline">\((1-\beta)g_L = 0.7g_L\)</span></li>
+</ul></li>
+</ul>
+<p><img src="images/UK_GA_a_decomp.png" width="80%" height="80%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Plot the results</strong> (<em>see</em> Section 5 for how to create and format a line plot)</li>
+</ul>
+<p><img src="images/UK_GA_Y_decomp_plot.png" width="80%" height="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="results-average-decompositions" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Results: average decompositions<a href="growth-accounting.html#results-average-decompositions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sometimes, it will be informative to decompose the average growth rates of output over long periods of time (decades), removing the effects of short-run fluctuations and allowing the analysis to focus on long-run trends.</p>
+<ul>
+<li><p><strong>Identify meaningful subperiods</strong> either using a plot of the natural logarithm to identify turning points in the growth experience of a country or based on significant country specific events (eg the fall of the Berlin wall and the reunification in Germany in 1990) or based on significant world events (eg the slowdown in productivity growth in developed economies in the early 1970s). In this example, we will decompose the growth of UK output over the full sample period (1950-2019) and over 3 subperiods (1950-1973, 1973-2007, 2007-2019).</p></li>
+<li><p><strong>Select the data by hiding the irrelevant rows</strong>:</p></li>
+</ul>
+<p><img src="images/UK_GA_Y_decomp_full_data.png" width="495" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Calculate the average growth rate of output, capital and labour over the full sample period and each subperiod</strong> using the formula for the compound average growth rate of variable <span class="math inline">\(x\)</span>: <span class="math inline">\(g_{x,t-s} = \left(\frac{x_s}{x_{t}}\right)^{\frac{1}{s-t}} - 1\)</span> or its logarithmic approximation (<em>see</em> section 6.1 for how to calculate compound annual growth rates).</li>
+</ul>
+<p><img src="images/UK_GA_Y_decomp_full_growth_rates.png" width="80%" height="80%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Calculate average growth rates of TFP and the contributions of capital and labour to the growth of output</strong> using the growth accounting equation.</li>
+</ul>
+<p><img src="images/UK_GA_Y_decomp_full_table.png" width="80%" height="80%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Present the results</strong> in a table, a column chart or any other chart you find useful to convey the information.</li>
+</ul>
+<p><img src="images/UK_GA_Y_decomp_full_results.png" width="80%" height="80%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><em>To produce the column chart</em>:</li>
+</ul>
+<div style="text-align: center;">
+<p><video src="media/video11.mp4" width="700" height="540" controls></video></p>
 </div>
 </div>
 </div>
@@ -184,8 +265,8 @@ Feenstra, Robert C., Robert Inklaar, and Marcel P.Timmer. 2015. <span>“The Nex
           </div>
         </div>
       </div>
-<a href="excel-and-large-language-models.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="excel-and-large-language-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

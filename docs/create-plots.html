@@ -23,7 +23,7 @@
 <meta name="author" content="Marion Prat" />
 
 
-<meta name="date" content="2025-01-05" />
+<meta name="date" content="2025-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,10 +135,17 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="tables.html"><a href="tables.html#formatting-tables-in-excel"><i class="fa fa-check"></i><b>6.2</b> Formatting tables in Excel</a></li>
 <li class="chapter" data-level="6.3" data-path="tables.html"><a href="tables.html#export-an-excel-table-to-a-word-document"><i class="fa fa-check"></i><b>6.3</b> Export an Excel table to a Word document</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html"><i class="fa fa-check"></i><b>7</b> Excel and Large language models</a>
+<li class="chapter" data-level="7" data-path="growth-accounting.html"><a href="growth-accounting.html"><i class="fa fa-check"></i><b>7</b> Growth accounting</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#find-an-excel-formula"><i class="fa fa-check"></i><b>7.1</b> Find an Excel formula</a></li>
-<li class="chapter" data-level="7.2" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#perform-operations-on-data"><i class="fa fa-check"></i><b>7.2</b> Perform operations on data</a></li>
+<li class="chapter" data-level="7.1" data-path="growth-accounting.html"><a href="growth-accounting.html#growth-accounting-equation"><i class="fa fa-check"></i><b>7.1</b> Growth accounting equation</a></li>
+<li class="chapter" data-level="7.2" data-path="growth-accounting.html"><a href="growth-accounting.html#variable-selection-and-transformation"><i class="fa fa-check"></i><b>7.2</b> Variable selection and transformation</a></li>
+<li class="chapter" data-level="7.3" data-path="growth-accounting.html"><a href="growth-accounting.html#results-annual-decompositions"><i class="fa fa-check"></i><b>7.3</b> Results: annual decompositions</a></li>
+<li class="chapter" data-level="7.4" data-path="growth-accounting.html"><a href="growth-accounting.html#results-average-decompositions"><i class="fa fa-check"></i><b>7.4</b> Results: average decompositions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html"><i class="fa fa-check"></i><b>8</b> Excel and Large language models</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#find-an-excel-formula"><i class="fa fa-check"></i><b>8.1</b> Find an Excel formula</a></li>
+<li class="chapter" data-level="8.2" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#perform-operations-on-data"><i class="fa fa-check"></i><b>8.2</b> Perform operations on data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -166,8 +173,9 @@ div.csl-indent {
 <div id="create-a-line-chart" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Create a line chart<a href="create-plots.html#create-a-line-chart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To create a plot of the logarithm of UK GDP, select the “year” and “lnGDPPC” column, go to “Insert” and click on “Recommended charts”. Select the plot which has “year” on x-axis and “lnGDPPC” on the y-axis among the options proposed.</p>
-<video src="media/video1.mp4" width="700" height="540" controls>
-</video>
+<div style="text-align: center;">
+<p><video src="media/video1.mp4" width="700" height="540" controls></video></p>
+</div>
 <p><strong>Note</strong>: you may be tempted to select fancy layouts using the “Quick Layout” tab. Although it may be helpful in some cases, it is more likely to add unnecessary detail and therefore be more confusing to read. Better to invest in learning how the chart elements can be modified to serve the purpose of each individual graph.</p>
 </div>
 <div id="titles" class="section level2 hasAnchor" number="5.2">
@@ -178,8 +186,9 @@ div.csl-indent {
 </li>
 <li>Select “Axis Titles” to add titles to the horizontal and vertical axis.</li>
 </ul>
-<video src="media/video2.mp4" width="700" height="540" controls>
-</video>
+<div style="text-align: center;">
+<p><video src="media/video2.mp4" width="700" height="540" controls></video></p>
+</div>
 <p><strong>Note</strong>: depending on the plot, adding titles may not add much information. For example, in the case of the plot of the logarithm of UK GDP per capita, adding axis titles do not add much information as it is clear already that the horizontal axis represents dates and the plot title already explains what it represents. In other cases, it may be impossible to understand what is represented without axis titles.</p>
 </div>
 <div id="format-axes" class="section level2 hasAnchor" number="5.3">
@@ -189,31 +198,36 @@ div.csl-indent {
 <li>To format the horizontal axis: right click on the dates on the chart and select “Format axis”. To have the dates displayed only every 10 years, use the “Label” option.</li>
 <li>To format the vertical axis: right click on the vertical axis and select “Format axis”. To modify the range of the vertical axis so that it better fits the range in the data, change the minimum or the maximum in the “Bounds” tab. To reduce/increase the number of ticks, change “Major” in the “Units tab. To reduce the number of decimal points, go to the”Number” option and specify your preferred number of decimal points (eg 1).</li>
 </ul>
-<video src="media/video3.mp4" width="700" height="540" controls>
-</video>
+<div style="text-align: center;">
+<p><video src="media/video3.mp4" width="700" height="540" controls></video></p>
+</div>
 </div>
 <div id="logarithimc-ratio-scale" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Logarithimc (ratio) scale<a href="create-plots.html#logarithimc-ratio-scale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Instead of plotting the logarithm of GDP per capita, you may want to represent GDP per capita on a ratio scale. Here is how the “Format axis” panel can be used to plot the logarithm base 2 of GDP per capita, so that each tick mark represents a doubling of GDP per capita.</p>
-<video src="media/video10.mp4" width="700" height="540" controls>
-</video>
+<div style="text-align: center;">
+<p><video src="media/video10.mp4" width="700" height="540" controls></video></p>
+</div>
 </div>
 <div id="add-trend-lines" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Add trend lines<a href="create-plots.html#add-trend-lines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To add a trend line, click on the chart and go to “Chart Design” and “Add Chart Element”. Then go to “Trendline” and select the shape of trend line that is the most relevant for your plot (here a linear trend because we plot the logarithm of GDP).</p>
-<video src="media/video4.mp4" width="700" height="540" controls>
-</video>
+<div style="text-align: center;">
+<p><video src="media/video4.mp4" width="700" height="540" controls></video></p>
+</div>
 </div>
 <div id="format-chart-area" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> Format chart area<a href="create-plots.html#format-chart-area" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Finally, altering the appearance of the line plot may improve the clarity of the graph. You may alter the thickness, the colour and the pattern of the line plot. To do so click on the line you wish to apply these changes to and select your preferred options.</p>
-<video src="media/video5.mp4" width="700" height="540" controls>
-</video>
+<div style="text-align: center;">
+<p><video src="media/video5.mp4" width="700" height="540" controls></video></p>
+</div>
 </div>
 <div id="export-plot-to-word-document" class="section level2 hasAnchor" number="5.7">
 <h2><span class="header-section-number">5.7</span> Export plot to Word document<a href="create-plots.html#export-plot-to-word-document" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<video src="media/video6.mp4" width="700" height="540" controls>
-</video>
+<div style="text-align: center;">
+<p><video src="media/video6.mp4" width="700" height="540" controls></video></p>
+</div>
 <p><strong>Note</strong>: if you do not paste the plot as a picture in the Word document, it is the entire Excel sheet that you are including into your Word document. Pasting the document as a picture (as in the video) may be more efficient.</p>
 </div>
 </div>

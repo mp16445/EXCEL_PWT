@@ -24,6 +24,11 @@ tables
 calculate-compound-growth-rates-in-excel
 formatting-tables-in-excel
 export-an-excel-table-to-a-word-document
+growth-accounting
+growth-accounting-equation
+variable-selection-and-transformation
+results-annual-decompositions
+results-average-decompositions
 excel-and-large-language-models
 find-an-excel-formula
 perform-operations-on-data
