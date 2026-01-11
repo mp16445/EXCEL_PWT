@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Excel and Large language models | The Penn World Table in Excel</title>
   <meta name="description" content="Chapter 8 Excel and Large language models | The Penn World Table in Excel" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Excel and Large language models | The Penn World Table in Excel" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Marion Prat" />
 
 
-<meta name="date" content="2025-01-14" />
+<meta name="date" content="2026-01-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -64,6 +64,7 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -146,6 +147,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="8.1" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#find-an-excel-formula"><i class="fa fa-check"></i><b>8.1</b> Find an Excel formula</a></li>
 <li class="chapter" data-level="8.2" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#perform-operations-on-data"><i class="fa fa-check"></i><b>8.2</b> Perform operations on data</a></li>
+<li class="chapter" data-level="8.3" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#create-complex-graphs"><i class="fa fa-check"></i><b>8.3</b> Create complex graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -176,22 +178,22 @@ div.csl-indent {
 <li>When creating a chart, Excel proposes a selection of charts likely to be relevant in “Recommended charts”.</li>
 </ul>
 <p>With the incorporation of Large Language Models (LLMs) such as Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase. In this section, we explore what these new capabilities may look like. It is strongly recommended that you perform all calculations using Excel or other programming software rather than ask an LLM to generate output for you.</p>
-<p><em>All output in this section have been generated using ChatGPT4. You may not be able to replicate this output using Copilot as it can only accept files of size up to 1MB.</em></p>
+<p><em>All output in this section have been generated using ChatGPT5.2.</em></p>
 <div id="find-an-excel-formula" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Find an Excel formula<a href="excel-and-large-language-models.html#find-an-excel-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you do not know how to write a formula in Excel, you may ask a LLM to suggest a formula.</p>
 <p><span style="color: blue;"><strong>Example: formula for the compound annual growth rate</strong></span>:</p>
 <blockquote>
-<p><strong>Prompt (ChatGPT 4)</strong>:
-I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet. Write an Excel formula I can use to calculate the compounded annual growth rate of GDP between 1950 and 2019. Explain carefully the formula.</p>
+<p><strong>Prompt (ChatGPT 5.2)</strong>:
+I have annual GDP data spanning the period 1950 to 2023. Write an Excel formula I can use to calculate the compounded annual growth rate of GDP between 1950 and 2023. Explain carefully the formula.</p>
 </blockquote>
-<p>ChatGPT 4 offers the following reply:</p>
-<p><img src="images/CGPT4_CAGR.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<p>ChatGPT 5.2 offers the following reply:</p>
+<p><img src="images/CGPT5.2_CAGR.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
 <p><span style="color: blue;"><strong>Check</strong></span>:</p>
 <ul>
 <li>Is the formula correct?</li>
 <li>Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita?</li>
-<li>Be careful that the GPT may be “hallucinating” an Excel function.</li>
+<li>Be careful that large language models may be “hallucinating” an Excel function.</li>
 </ul>
 </div>
 <div id="perform-operations-on-data" class="section level2 hasAnchor" number="8.2">
@@ -199,21 +201,40 @@ I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet.
 <p>Large language models can also be used to perform most of the tasks discussed in the previous sections.</p>
 <p><span style="color: blue;"><strong>Example: Extract UK data and create GDP per capita</strong></span>:</p>
 <blockquote>
-<p><strong>Prompt (ChatGPT 4o)</strong>: (attaching pwt1001.xlsx) Using the PWT10.01 dataset attached, do the following tasks. 1) extract “year”, “rgdpo” and “pop” for entries where “country” is equal to “United Kingdom”. 2) create a new variables for UK GDP per capita using the variables extracted. 3) create a new Excel spreadsheet including the new variable, ready to be downloaded.</p>
+<p><strong>Prompt (ChatGPT 5.2)</strong>: (attaching pwt110.xlsx) Using the PWT11.0 dataset attached, do the following tasks. 1) Extract “year”, “rgdpo” and “pop” for entries where “country” is equal to “United Kingdom”. 2) Construct the new variable for UK GDP per capita using the variables extracted. 3) Create a new Excel spreadsheet including the new variable, and including all intermediate steps ready to be downloaded.</p>
 </blockquote>
-<p>ChatGPT 4 generates:</p>
+<p>ChatGPT 5.2 generates:</p>
 <ol style="list-style-type: decimal">
 <li><p>Python code used to extract the relevant data and create the new variable.</p></li>
 <li><p>Output: new Excel spreadsheet</p></li>
 </ol>
-<p><img src="images/CGPT4o_UK.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
+<p><img src="images/CGPT5.2_UKGDPPC.png" width="85%" height="85%" style="display: block; margin: auto;" /></p>
 <p>Opening the new spreadsheet:</p>
-<p><img src="images/CGPT4o_UK2.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<p><img src="images/CGPT5.2_UKGDPPC_data.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
 <p><span style="color: blue;"><strong>Check</strong></span>:</p>
 <ul>
 <li>Compare this spreadsheet with that created in Section 1.1.</li>
 <li>Check that the first entry for UK GDP per capita is correct.</li>
 </ul>
+<p>ChatGPT 5.2 provides this additional information:</p>
+<p><img src="images/CGPT5.2_UKGDPPC_v2.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
+<p><span style="color: blue;"><strong>Check</strong></span> that this information is correct (<em>Hint</em>: it is not!).</p>
+<p><em>Note that the more complex the task required, the less efficient it will be to delegate data analysis tasks to large language models.</em></p>
+</div>
+<div id="create-complex-graphs" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Create complex graphs<a href="excel-and-large-language-models.html#create-complex-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Large language models can help create graphs using more complex functions.</p>
+<p><span style="color: blue;"><strong>Example: </strong></span>:</p>
+<blockquote>
+<p><strong>Prompt (ChatGPT 5.2)</strong>: I would like to create a column chart representing the results of this growth accounting decomposition of UK labour productivity between 1954 and 2023. I want the graph to stack the contribution of capital accumulation (βgk) and TFP growth (g) in 4 different bars corresponding to the 4 subperiods. See data attached.</p>
+</blockquote>
+<p><img src="images/CGPT5.2_chart_data.png" width="40%" height="40%" style="display: block; margin: auto;" /></p>
+<p>ChatGPT 5.2 generates:</p>
+<p><img src="images/CGPT5.2_chart_1.png" width="60%" height="60%" style="display: block; margin: auto;" /></p>
+<p><img src="images/CGPT5.2_chart_2.png" width="60%" height="60%" style="display: block; margin: auto;" /></p>
+<p><img src="images/CGPT5.2_chart_3.png" width="60%" height="60%" style="display: block; margin: auto;" /></p>
+<p><span style="color: blue;"><strong>Check</strong></span> that the instructions allow you to construct the desired chart.</p>
+<p><em>Note how important it is to describe precisely what you are trying to achieve and therefore to understand the data and the methodology!</em></p>
 </div>
 </div>
             </section>
@@ -236,42 +257,42 @@ I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet.
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf", "_main.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

@@ -32,3 +32,4 @@ results-average-decompositions
 excel-and-large-language-models
 find-an-excel-formula
 perform-operations-on-data
+create-complex-graphs

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The Penn World Table in Excel</title>
   <meta name="description" content="The Penn World Table in Excel" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The Penn World Table in Excel" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Marion Prat" />
 
 
-<meta name="date" content="2025-01-14" />
+<meta name="date" content="2026-01-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -64,6 +64,7 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -146,6 +147,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="8.1" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#find-an-excel-formula"><i class="fa fa-check"></i><b>8.1</b> Find an Excel formula</a></li>
 <li class="chapter" data-level="8.2" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#perform-operations-on-data"><i class="fa fa-check"></i><b>8.2</b> Perform operations on data</a></li>
+<li class="chapter" data-level="8.3" data-path="excel-and-large-language-models.html"><a href="excel-and-large-language-models.html#create-complex-graphs"><i class="fa fa-check"></i><b>8.3</b> Create complex graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="useful-resources.html"><a href="useful-resources.html"><i class="fa fa-check"></i>Useful resources</a></li>
 <li class="divider"></li>
@@ -171,19 +173,19 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">The Penn World Table in Excel</h1>
 <p class="author"><em>Marion Prat</em></p>
-<p class="date"><em>2025-01-14</em></p>
+<p class="date"><em>2026-01-11</em></p>
 </div>
 <div id="introduction" class="section level1 unnumbered hasAnchor">
 <h1>Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>This resource is still a work in progress. Any feedback is welcome.</em></p>
 <p><em>You can write to me at: <a href="mailto:marion.prat@bristol.ac.uk" class="email">marion.prat@bristol.ac.uk</a>.</em></p>
-<p>In this tutorial, we will show how to extract useful empirical facts about long-run growth from the <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank"><span style="color: black;"><strong>Penn World Table</strong></span></a> <span class="citation">(<a href="#ref-PWT">Feenstra, Inklaar, and P.Timmer 2015</a>)</span> using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950).</p>
-<p><strong>Download</strong> the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;"><strong>here</strong></span></a> and <strong>save</strong> it in a folder entitled PWT. The spreadsheet contains three sheets: “Info”, “Legend” and “Data”.</p>
-<p><img src="images/ExcelPWT.png" width="958" /></p>
+<p>In this tutorial, we will show how to extract useful empirical facts about long-run growth from the <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank"><span style="color: black;"><strong>Penn World Table</strong></span></a> <span class="citation">(<a href="#ref-PWT">Feenstra, Inklaar, and P.Timmer 2015</a>)</span> using basic functions and operations in Excel. The PWT 11.0 contains data on GDP and its components, as well as demographic characteristics for 185 countries from 1950 to 2023 (although for some countries the data may not be available as early as 1950).</p>
+<p><strong>Download</strong> the PWT PWT 11.0 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;"><strong>here</strong></span></a> and <strong>save</strong> it in a folder entitled PWT. The spreadsheet contains three sheets: “Info”, “Legend” and “Data”.</p>
+<p><img src="images/ExcelPWT.png" /><!-- --></p>
 <p>Before going any further, check the definition of the variables in the “Legend” sheet. Why are there so many different measures of real GDP? How do they differ?</p>
-<p><img src="images/ExcelPWT_legend.png" width="958" /></p>
+<p><img src="images/ExcelPWT_legend.png" /><!-- --></p>
 <p>The “Data” sheet contains the dataset.</p>
-<p><img src="images/ExcelPWT_data.png" width="960" /></p>
+<p><img src="images/ExcelPWT_data.png" /><!-- --></p>
 <p>Each row corresponds to observations for a given country in a given year and each column represents a variable. Although this layout may appear confusing at first, it is in fact computer friendly:</p>
 <ul>
 <li>First, it is easy to use a <em>Power Query</em> in the <em>Data</em> tab (accessed via “Get Data”) to create a new Excel sheet containing any subset of the data you are interested in analysing. This is what we are going to do in this tutorial.</li>
@@ -191,7 +193,7 @@ div.csl-indent {
 </ul>
 </div>
 <h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-PWT" class="csl-entry">
 Feenstra, Robert C., Robert Inklaar, and Marcel P.Timmer. 2015. <span>“The Next Generation of the Penn World Table.”</span> <em>American Economic Review</em> 105 (10): 3150–82.
 </div>
@@ -216,42 +218,42 @@ Feenstra, Robert C., Robert Inklaar, and Marcel P.Timmer. 2015. <span>“The Nex
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf", "_main.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

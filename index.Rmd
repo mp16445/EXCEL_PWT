@@ -17,9 +17,9 @@ link-citations: yes
 
 *You can write to me at: marion.prat@bristol.ac.uk.*
 
-In this tutorial, we will show how to extract useful empirical facts about long-run growth from the <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank"><span style="color: black;">**Penn World Table**</span></a> [@PWT] using basic functions and operations in Excel. The PWT 10.01 contains data on GDP and its components, as well as demographic characteristics for 183 countries from 1950 to 2019 (although for some countries the data may not be available as early as 1950). 
+In this tutorial, we will show how to extract useful empirical facts about long-run growth from the <a href="https://www.rug.nl/ggdc/productivity/pwt/" target="_blank"><span style="color: black;">**Penn World Table**</span></a> [@PWT] using basic functions and operations in Excel. The PWT 11.0 contains data on GDP and its components, as well as demographic characteristics for 185 countries from 1950 to 2023 (although for some countries the data may not be available as early as 1950). 
 
-**Download** the PWT 10.01 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;">**here**</span></a> and **save** it in a folder entitled PWT. The spreadsheet contains three sheets: "Info", "Legend" and "Data".
+**Download** the PWT PWT 11.0 Excel spreadsheet <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en" target="_blank"><span style="color: blue;">**here**</span></a> and **save** it in a folder entitled PWT. The spreadsheet contains three sheets: "Info", "Legend" and "Data".
 
 ```{r ExcelPWT, echo=FALSE}
 
@@ -103,7 +103,7 @@ knitr::include_graphics(rep("images/ExcelPWT4.png"))
 
 ```
 
-- Select **pwt1001** (in the folder where you saved it) and click on *Import*. In the *Navigator* box, select the *Data* spreadsheet and press *Transform Data*
+- Select **pwt110** (in the folder where you saved it) and click on *Import*. In the *Navigator* box, select the *Data* spreadsheet and press *Transform Data*
 
 ```{r ExcelPWT5, echo=FALSE}
 
@@ -631,7 +631,7 @@ Many AI tools are already embedded into Excel. We have already used some of thes
 
 With the incorporation of Large Language Models (LLMs) such as Microsoft Copilot within Excel, the capabilities of generative AI tools in Excel is likely to increase. In this section, we explore what these new capabilities may look like. It is strongly recommended that you perform all calculations using Excel or other programming software rather than ask an LLM to generate output for you.   
 
-*All output in this section have been generated using ChatGPT4. You may not be able to replicate this output using Copilot as it can only accept files of size up to 1MB.*
+*All output in this section have been generated using ChatGPT5.2.*
 
 ## Find an Excel formula
 
@@ -639,14 +639,14 @@ If you do not know how to write a formula in Excel, you may ask a LLM to suggest
 
 <span style="color: blue;">**Example: formula for the compound annual growth rate**</span>: 
 
-> **Prompt (ChatGPT 4)**: 
-I have annual GDP data spanning the period 1950 to 2019 in an Excel spreadsheet. Write an Excel formula I can use to calculate the compounded annual growth rate of GDP between 1950 and 2019. Explain carefully the formula.
+> **Prompt (ChatGPT 5.2)**: 
+I have annual GDP data spanning the period 1950 to 2023. Write an Excel formula I can use to calculate the compounded annual growth rate of GDP between 1950 and 2023. Explain carefully the formula.
 
-ChatGPT 4 offers the following reply:
+ChatGPT 5.2 offers the following reply:
 
-```{r CGPT4_CAGR, echo=FALSE, out.width="85%", out.height="85%", fig.align='center'}
+```{r CGPT5.2_CAGR, echo=FALSE, out.width="85%", out.height="85%", fig.align='center'}
 
-knitr::include_graphics(rep("images/CGPT4_CAGR.png"))
+knitr::include_graphics(rep("images/CGPT5.2_CAGR.png"))
 
 ```
 
@@ -654,7 +654,7 @@ knitr::include_graphics(rep("images/CGPT4_CAGR.png"))
 
 - Is the formula correct? 
 - Can you use the formula in Excel to calculate the compound annual growth rate of UK GDP per capita? 
-- Be careful that the GPT may be "hallucinating" an Excel function.
+- Be careful that large language models may be "hallucinating" an Excel function.
 
 
 ## Perform operations on data  
@@ -663,25 +663,25 @@ Large language models can also be used to perform most of the tasks discussed in
 
 <span style="color: blue;">**Example: Extract UK data and create GDP per capita**</span>:
 
-> **Prompt (ChatGPT 4o)**: (attaching pwt1001.xlsx) Using the PWT10.01 dataset attached, do the following tasks. 1) extract "year", "rgdpo" and "pop" for entries where "country" is equal to "United Kingdom". 2) create a new variables for UK GDP per capita using the variables extracted. 3) create a new Excel spreadsheet including the new variable, ready to be downloaded.
+> **Prompt (ChatGPT 5.2)**: (attaching pwt110.xlsx) Using the PWT11.0 dataset attached, do the following tasks. 1) Extract “year”, “rgdpo” and “pop” for entries where “country” is equal to “United Kingdom”. 2) Construct the new variable for UK GDP per capita using the variables extracted. 3) Create a new Excel spreadsheet including the new variable, and including all intermediate steps ready to be downloaded.
 
-ChatGPT 4 generates:
+ChatGPT 5.2 generates:
 
 1. Python code used to extract the relevant data and create the new variable.
 
 2. Output: new Excel spreadsheet
 
-```{r CGPT4o_UK, echo=FALSE, out.width="85%", out.height="85%", fig.align='center'}
+```{r CGPT5.2_UKGDPPC, echo=FALSE, out.width="85%", out.height="85%", fig.align='center'}
 
-knitr::include_graphics(rep("images/CGPT4o_UK.png"))
+knitr::include_graphics(rep("images/CGPT5.2_UKGDPPC.png"))
 
 ```
 
 Opening the new spreadsheet:
 
-```{r CGPT4o_UK2, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
+```{r CGPT5.2_UKGDPPC_data, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
 
-knitr::include_graphics(rep("images/CGPT4o_UK2.png"))
+knitr::include_graphics(rep("images/CGPT5.2_UKGDPPC_data.png"))
 
 ```
 
@@ -689,6 +689,57 @@ knitr::include_graphics(rep("images/CGPT4o_UK2.png"))
 
 - Compare this spreadsheet with that created in Section 1.1. 
 - Check that the first entry for UK GDP per capita is correct.  
+
+ChatGPT 5.2 provides this additional information:
+
+```{r CGPT5.2_UKGDPPC_notes, echo=FALSE, out.width="50%", out.height="50%", fig.align='center'}
+
+knitr::include_graphics(rep("images/CGPT5.2_UKGDPPC_v2.png"))
+
+```
+
+<span style="color: blue;">**Check**</span> that this information is correct (*Hint*: it is not!). 
+
+*Note that the more complex the task required, the less efficient it will be to delegate data analysis tasks to large language models.*
+
+## Create complex graphs  
+
+Large language models can help create graphs using more complex functions. 
+
+<span style="color: blue;">**Example: **</span>:
+
+> **Prompt (ChatGPT 5.2)**: I would like to create a column chart representing the results of this growth accounting decomposition of UK labour productivity between 1954 and 2023. I want the graph to stack the contribution of capital accumulation (βgk) and TFP growth (g) in 4 different bars corresponding to the 4 subperiods. See data attached.
+
+```{r CGPT5.2_chart_data, echo=FALSE, out.width="40%", out.height="40%", fig.align='center'}
+
+knitr::include_graphics(rep("images/CGPT5.2_chart_data.png"))
+
+```
+
+ChatGPT 5.2 generates:
+
+```{r CGPT5.2_chart1, echo=FALSE, out.width="60%", out.height="60%", fig.align='center'}
+
+knitr::include_graphics(rep("images/CGPT5.2_chart_1.png"))
+
+```
+
+```{r CGPT5.2_chart2, echo=FALSE, out.width="60%", out.height="60%", fig.align='center'}
+
+knitr::include_graphics(rep("images/CGPT5.2_chart_2.png"))
+
+```
+
+```{r CGPT5.2_chart3, echo=FALSE, out.width="60%", out.height="60%", fig.align='center'}
+
+knitr::include_graphics(rep("images/CGPT5.2_chart_3.png"))
+
+```
+
+<span style="color: blue;">**Check**</span> that the instructions allow you to construct the desired chart.
+
+*Note how important it is to describe precisely what you are trying to achieve and therefore to understand the data and the methodology!*
+
 
 # Useful resources {-} 
 
